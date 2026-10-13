@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="color-scheme" content="dark light" />
   <meta name="theme-color" content="#0d0e10" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
 
   <title>ACowork &mdash; AI Agents Collaboration Platform</title>
   <meta name="description" content="ACowork is a multi-user, distributed, AI-native collaboration platform. Declarative agents, one control plane, standalone-to-cluster &mdash; same binary." />
@@ -22,7 +25,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" />
 
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=6" />
 </head>
 <body>
 
@@ -37,7 +40,7 @@
         <a href="#start">Get Started</a>
       </nav>
       <div class="nav__actions">
-        <a class="btn btn--primary btn--sm" href="https://github.com/acowork/ACoworkWebsite" target="_blank" rel="noopener" aria-label="GitHub repository">
+        <a class="btn btn--primary btn--sm" href="https://github.com/acowork/ACowork" target="_blank" rel="noopener" aria-label="GitHub repository">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.77-1.34-1.77-1.1-.74.08-.73.08-.73 1.21.08 1.85 1.24 1.85 1.24 1.08 1.85 2.84 1.31 3.53 1 .11-.78.42-1.31.77-1.61-2.66-.3-5.46-1.33-5.46-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.11-3.17 0 0 1.01-.32 3.3 1.23a11.45 11.45 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.87.12 3.17.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.62-5.47 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .5Z"/></svg>
           <span>GitHub</span>
           <span class="badge" id="stars-badge" aria-live="polite">&#9733;</span>
@@ -53,14 +56,12 @@
 
     <section class="hero">
       <div class="hero__bg" aria-hidden="true">
-        <div class="hero__glow hero__glow--a"></div>
-        <div class="hero__glow hero__glow--b"></div>
         <div class="hero__grid"></div>
       </div>
 
       <div class="container hero__inner">
         <div class="hero__copy">
-          <a class="eyebrow" href="https://github.com/acowork/ACoworkWebsite" target="_blank" rel="noopener">
+          <a class="eyebrow" href="https://github.com/acowork/ACowork" target="_blank" rel="noopener">
             <span class="eyebrow__dot"></span>
             Now in Alpha &middot; v0.x
           </a>
@@ -79,7 +80,7 @@
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 3v12M6 11l6 6 6-6M5 21h14"/></svg>
               Download
             </a>
-            <a class="btn btn--ghost" href="https://github.com/acowork/ACoworkWebsite" target="_blank" rel="noopener">
+            <a class="btn btn--ghost" href="https://github.com/acowork/ACowork" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.77-1.34-1.77-1.1-.74.08-.73.08-.73 1.21.08 1.85 1.24 1.85 1.24 1.08 1.85 2.84 1.31 3.53 1 .11-.78.42-1.31.77-1.61-2.66-.3-5.46-1.33-5.46-5.93 0-1.31.47-2.38 1.24-3.22-.13-.3-.54-1.52.11-3.17 0 0 1.01-.32 3.3 1.23a11.45 11.45 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.87.12 3.17.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.62-5.47 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .5Z"/></svg>
               Star on GitHub
             </a>
@@ -115,42 +116,45 @@ model    = <span class="c-str">"deepseek-v4-flash"</span>
         <header class="section__head">
           <p class="eyebrow eyebrow--center">Download</p>
           <h2 class="section__title">Pick your platform.</h2>
-          <p class="section__lead">Pre-built binaries for desktop, plus Android. Alpha channel &mdash; <a href="https://github.com/acowork/ACoworkWebsite/releases" target="_blank" rel="noopener">see releases</a> for the latest.</p>
+          <p class="section__lead">Pre-built binaries for desktop, plus Android. Alpha channel &mdash; <a href="https://github.com/acowork/ACowork/releases" target="_blank" rel="noopener">see releases</a> for the latest.</p>
         </header>
 
         <div class="dl-grid">
-          <a class="dl-card" href="https://github.com/acowork/ACoworkWebsite/releases" target="_blank" rel="noopener">
-            <div class="dl-card__os" aria-hidden="true">&#129439;</div>
+          <a class="dl-card" href="https://github.com/acowork/ACowork/releases" target="_blank" rel="noopener">
             <div class="dl-card__body">
-              <h3>Windows</h3>
+              <h3><strong class="dl-name">Windows</strong></h3>
               <p>Windows 10/11 &middot; x64 &middot; <code>.msi</code> / <code>.exe</code></p>
               <span class="dl-meta dl-meta--alpha">Alpha &middot; build from source</span>
             </div>
           </a>
 
-          <a class="dl-card" href="https://github.com/acowork/ACoworkWebsite/releases" target="_blank" rel="noopener">
-            <div class="dl-card__os" aria-hidden="true">&#127822;</div>
+          <a class="dl-card" href="https://github.com/acowork/ACowork/releases" target="_blank" rel="noopener">
             <div class="dl-card__body">
-              <h3>macOS</h3>
+              <h3><strong class="dl-name">macOS</strong></h3>
               <p>macOS 12+ &middot; Universal &middot; <code>.dmg</code></p>
               <span class="dl-meta dl-meta--alpha">Alpha &middot; build from source</span>
             </div>
           </a>
 
-          <a class="dl-card" href="https://github.com/acowork/ACoworkWebsite/releases" target="_blank" rel="noopener">
-            <div class="dl-card__os" aria-hidden="true">&#128039;</div>
+          <a class="dl-card" href="https://github.com/acowork/ACowork/releases" target="_blank" rel="noopener">
             <div class="dl-card__body">
-              <h3>Linux</h3>
+              <h3><strong class="dl-name">Linux</strong></h3>
               <p>x86_64 / arm64 &middot; <code>.deb</code> &middot; <code>.rpm</code> &middot; <code>.AppImage</code></p>
               <span class="dl-meta dl-meta--alpha">Alpha &middot; build from source</span>
             </div>
           </a>
 
-          <a class="dl-card" href="https://github.com/acowork/ACoworkWebsite/releases" target="_blank" rel="noopener">
-            <div class="dl-card__os" aria-hidden="true">&#129302;</div>
+          <a class="dl-card" href="https://github.com/acowork/ACowork/releases" target="_blank" rel="noopener">
             <div class="dl-card__body">
-              <h3>Android</h3>
+              <h3><strong class="dl-name">Android</strong></h3>
               <p>Android 9+ &middot; arm64 &middot; <code>.apk</code></p>
+              <span class="dl-meta dl-meta--alpha">Alpha &middot; build from source</span>
+            </div>
+          </a>
+          <a class="dl-card" href="https://github.com/acowork/ACowork" target="_blank" rel="noopener">
+            <div class="dl-card__body">
+              <h3><strong class="dl-name">iOS</strong></h3>
+              <p>iOS 15+ &middot; arm64 &middot; <code>.ipa</code></p>
               <span class="dl-meta dl-meta--soon">Coming soon</span>
             </div>
           </a>
@@ -158,11 +162,11 @@ model    = <span class="c-str">"deepseek-v4-flash"</span>
 
         <div class="dl-build">
           <p class="dl-build__title">Or build from source &mdash; single command, all platforms:</p>
-          <pre class="code"><code><span class="c-cd">$</span> git clone https://github.com/acowork/ACoworkWebsite
+          <pre class="code"><code><span class="c-cd">$</span> git clone https://github.com/acowork/ACowork
 <span class="c-cd">$</span> cd ACowork
 <span class="c-cd">$</span> ./dev/common/setup_ort.sh      <span class="c-c"># one-time: stage ONNX Runtime</span>
 <span class="c-cd">$</span> ./dev/common/build_core.sh     <span class="c-c"># release build of Gateway + Runtime + Node</span></code></pre>
-          <p class="dl-build__note">Need prebuilt convenience? Watch / star <a href="https://github.com/acowork/ACoworkWebsite" target="_blank" rel="noopener">the GitHub repo</a> to be notified when release artifacts ship.</p>
+          <p class="dl-build__note">Need prebuilt convenience? Watch / star <a href="https://github.com/acowork/ACowork" target="_blank" rel="noopener">the GitHub repo</a> to be notified when release artifacts ship.</p>
         </div>
       </div>
     </section>
@@ -176,34 +180,34 @@ model    = <span class="c-str">"deepseek-v4-flash"</span>
 
         <div class="ft-grid">
           <article class="ft">
-            <div class="ft__icon">&#129513;</div>
+            <div class="ft__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/><path d="M12 22V12"/><polyline points="3.29 7 12 12 20.71 7"/><path d="m7.5 4.27 9 5.15"/></svg></div>
             <h3>Declarative agents</h3>
             <p><code class="inline">.agent</code> packages &mdash; manifest + prompts + skills, <strong>no executable code</strong>, signed and verified at install time.</p>
           </article>
           <article class="ft">
-            <div class="ft__icon">&#9881;&#65039;</div>
+            <div class="ft__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 10.27 7 3.34"/><path d="m11 13.73-4 6.93"/><path d="M12 22v-2"/><path d="M12 2v2"/><path d="M14 12h8"/><path d="m17 20.66-1-1.73"/><path d="m17 3.34-1 1.73"/><path d="M2 12h2"/><path d="m20.66 17-1.73-1"/><path d="m20.66 7-1.73 1"/><path d="m3.34 17 1.73-1"/><path d="m3.34 7 1.73 1"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="12" r="8"/></svg></div>
             <h3>Universal runtime</h3>
             <p>One Rust binary loads any <code class="inline">.agent</code>. Agents talk to LLMs directly &mdash; no proxy, no extra latency.</p>
           </article>
           <article class="ft">
-            <div class="ft__icon">&#127760;</div>
+            <div class="ft__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></svg></div>
             <h3>Distributed by default</h3>
             <p>Gateway + Node + Runtime, one protocol path. Standalone, remote nodes, or relay &mdash; same binary, no branches.</p>
           </article>
           <article class="ft">
-            <div class="ft__icon">&#128194;</div>
+            <div class="ft__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2h-4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8"/><path d="M16.706 2.706A2.4 2.4 0 0 0 15 2v5a1 1 0 0 0 1 1h5a2.4 2.4 0 0 0-.706-1.706z"/><path d="M5 7a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h8a2 2 0 0 0 1.732-1"/></svg></div>
             <h3>AI-native PM &amp; Doc</h3>
             <p><code class="inline">acowork-pm</code> and <code class="inline">acowork-doc</code> as first-class services &mdash; REST + MCP, real-time multi-user editing.</p>
           </article>
           <article class="ft">
-            <div class="ft__icon">&#129504;</div>
+            <div class="ft__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 18V5"/><path d="M15 13a4.17 4.17 0 0 1-3-4 4.17 4.17 0 0 1-3 4"/><path d="M17.598 6.5A3 3 0 1 0 12 5a3 3 0 1 0-5.598 1.5"/><path d="M17.997 5.125a4 4 0 0 1 2.526 5.77"/><path d="M18 18a4 4 0 0 0 2-7.464"/><path d="M19.967 17.483A4 4 0 1 1 12 18a4 4 0 1 1-7.967-.517"/><path d="M6 18a4 4 0 0 1-2-7.464"/><path d="M6.003 5.125a4 4 0 0 0-2.526 5.77"/></svg></div>
             <h3>Biomimetic memory</h3>
             <p>Per-agent Grafeo graph DB &middot; 3-tier / 5-class layers &middot; HNSW + BM25 hybrid retrieval.</p>
           </article>
           <article class="ft">
-            <div class="ft__icon">&#128737;&#65039;</div>
-            <h3>Three-layer security</h3>
-            <p>Package signing + OS process sandbox + Wasmtime tool sandbox. Capabilities declared, not implicit.</p>
+            <div class="ft__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div>
+            <h3>Multi-tier permission system</h3>
+            <p><strong>Admin</strong>/<strong>user</strong> roles &middot; per-<strong>node</strong>, per-<strong>agent</strong>, and per-<strong>session</strong> visibility with explicit user grants. Least privilege, by default.</p>
           </article>
         </div>
       </div>
@@ -213,63 +217,127 @@ model    = <span class="c-str">"deepseek-v4-flash"</span>
       <div class="container">
         <header class="section__head">
           <p class="eyebrow eyebrow--center">Get Started</p>
-          <h2 class="section__title">Three ways to start. Same binary.</h2>
-          <p class="section__lead">Pick the deployment shape that matches your team &mdash; installation is the same; only the wiring changes.</p>
+          <h2 class="section__title">Two ways to install. Three ways to deploy.</h2>
+          <p class="section__lead">Pick how you want to run it &mdash; install a prebuilt binary, or build from source. Standalone, cluster, or relay &mdash; same binary either way.</p>
         </header>
 
-        <div class="modes">
+        <div class="install-tabs-wrap">
+          <div class="install-tabs" role="tablist" aria-label="Installation method">
+            <button class="install-tab is-active" role="tab" id="tab-binary" aria-selected="true" aria-controls="panel-binary" data-tab="binary" type="button">
+              <span class="install-tab__label">Install binary</span>
+              <span class="install-tab__hint">Recommended &middot; ~30&nbsp;s, no toolchain</span>
+            </button>
+            <button class="install-tab" role="tab" id="tab-source" aria-selected="false" aria-controls="panel-source" data-tab="source" type="button">
+              <span class="install-tab__label">Build from source</span>
+              <span class="install-tab__hint">Advanced &middot; Rust 1.75+</span>
+            </button>
+          </div>
+        </div>
 
-          <article class="mode">
-            <header class="mode__head">
-              <span class="mode__tag">A &middot; Standalone</span>
-              <h3>Local single host</h3>
-              <p>Personal use, demos, edge devices. Gateway auto-spawns one local Node Agent. Zero setup.</p>
+        <div class="install-panels">
+          <article class="install-panel is-active" role="tabpanel" id="panel-binary" aria-labelledby="tab-binary" data-panel="binary">
+            <header class="install-panel__head">
+              <h3>Install a prebuilt binary</h3>
+              <p>Drop <code class="inline">acowork</code> on your <code class="inline">PATH</code> in seconds &mdash; no Rust toolchain, no clone.</p>
             </header>
-            <pre class="code"><code><span class="c-cd">$</span> <span class="c-cmd">./dev/common/build_core.sh</span>           <span class="c-c"># macOS / Linux</span>
-<span class="c-cd">$</span> <span class="c-cmd">.\dev\common\build_core.ps1 -Start</span>   <span class="c-c"># Windows</span>
+            <pre class="code"><code><span class="c-c"># macOS / Linux &mdash; one-line installer:</span>
+<span class="c-cd">$</span> <span class="c-cmd">curl -fsSL https://acowork.dev/install.sh | sh</span>
 
-<span class="c-c"># Gateway picks up a local Node Agent automatically:</span>
-<span class="c-ok">&#10003;</span> Gateway   listening on  http://127.0.0.1:19876
-<span class="c-ok">&#10003;</span> MQTT      broker    on   127.0.0.1:19875
+<span class="c-c"># Windows (PowerShell):</span>
+<span class="c-cd">$</span> <span class="c-cmd">irm https://acowork.dev/install.ps1 | iex</span>
+
+<span class="c-c"># Or grab a release artifact directly:</span>
+<span class="c-c">#&nbsp;&nbsp;&nbsp;https://github.com/acowork/ACowork/releases/latest</span>
+
+<span class="c-cd">$</span> <span class="c-cmd">acowork --version</span>
+<span class="c-ok">&#10003;</span> acowork 0.x.y
+
+<span class="c-c"># Launch a Standalone host &mdash; the easiest deployment:</span>
+<span class="c-cd">$</span> <span class="c-cmd">acowork run standalone</span>
+<span class="c-ok">&#10003;</span> Gateway    listening on  http://127.0.0.1:19876
+<span class="c-ok">&#10003;</span> MQTT       broker    on   127.0.0.1:19875
 <span class="c-ok">&#10003;</span> Local Node Agent enrolled (uuid=local-&hellip;)
 <span class="c-ok">&#10003;</span> Ready. Open Desktop App &rarr;  http://localhost:5173</code></pre>
           </article>
 
-          <article class="mode">
-            <header class="mode__head">
-              <span class="mode__tag">B &middot; Remote nodes</span>
-              <h3>Cluster</h3>
-              <p>Multiple machines, one Gateway. Run heavy agents on a GPU box, lightweight on a laptop &mdash; both enroll over MQTT.</p>
+          <article class="install-panel" role="tabpanel" id="panel-source" aria-labelledby="tab-source" data-panel="source" hidden>
+            <header class="install-panel__head">
+              <h3>Build from source</h3>
+              <p>For contributors and packagers &mdash; builds the same binary the install script downloads.</p>
             </header>
-            <pre class="code"><code><span class="c-c"># On every host that should host Runtimes</span>
+            <pre class="code"><code><span class="c-cd">$</span> <span class="c-cmd">git clone https://github.com/acowork/ACowork</span>
+<span class="c-cd">$</span> <span class="c-cmd">cd ACowork</span>
+
+<span class="c-cd">$</span> <span class="c-cmd">cargo build --release --workspace</span>
+<span class="c-c">&hellip; ~5&nbsp;min on first build, cached after &hellip;</span>
+
+<span class="c-cd">$</span> <span class="c-cmd">./target/release/acowork --version</span>
+<span class="c-ok">&#10003;</span> acowork 0.x.y
+
+<span class="c-c"># Launch a Standalone host from source:</span>
+<span class="c-cd">$</span> <span class="c-cmd">./target/release/acowork run standalone</span>
+<span class="c-ok">&#10003;</span> Gateway    listening on  http://127.0.0.1:19876
+<span class="c-ok">&#10003;</span> MQTT       broker    on   127.0.0.1:19875
+<span class="c-ok">&#10003;</span> Local Node Agent enrolled (uuid=local-&hellip;)
+<span class="c-ok">&#10003;</span> Ready. Open Desktop App &rarr;  http://localhost:5173</code></pre>
+          </article>
+        </div>
+
+        <div class="topology">
+          <header class="topology__head">
+            <p class="eyebrow eyebrow--center">Deployment topologies</p>
+            <h3>Same binary. Three wirings.</h3>
+            <p>Once installed, pick how your nodes connect &mdash; the binaries don't change.</p>
+          </header>
+
+          <div class="modes">
+            <article class="mode">
+              <header class="mode__head">
+                <span class="mode__tag">A &middot; Standalone</span>
+                <h3>Local single host</h3>
+                <p>Personal use, demos, edge devices. Gateway auto-spawns one local Node Agent. Zero setup.</p>
+              </header>
+              <pre class="code"><code><span class="c-cd">$</span> <span class="c-cmd">acowork run standalone</span>
+<span class="c-ok">&#10003;</span> Gateway   listening on  http://127.0.0.1:19876
+<span class="c-ok">&#10003;</span> Local Node Agent enrolled (uuid=local-&hellip;)
+<span class="c-ok">&#10003;</span> Ready. Open Desktop App &rarr;  http://localhost:5173</code></pre>
+            </article>
+
+            <article class="mode">
+              <header class="mode__head">
+                <span class="mode__tag">B &middot; Remote nodes</span>
+                <h3>Cluster</h3>
+                <p>Multiple machines, one Gateway. Run heavy agents on a GPU box, lightweight on a laptop &mdash; both enroll over MQTT.</p>
+              </header>
+              <pre class="code"><code><span class="c-c"># On every host that should host Runtimes</span>
 <span class="c-c"># (GPU box, workstation, cloud VM):</span>
 <span class="c-cd">$</span> <span class="c-cmd">acowork-node</span> \
       --gateway mqtts://gateway.example.com:19875 \
       --token   $ENROLL_TOKEN
-<span class="c-ok">&#10003;</span> enrolled as node-&lt;uuid&gt;
+<span class="c-ok">&#10003;</span> enrolled as node-<uuid>
 
 <span class="c-c"># Gateway discovers it automatically.</span>
 <span class="c-c"># Same protocol path; zero local-vs-remote code.</span></code></pre>
-          </article>
+            </article>
 
-          <article class="mode">
-            <header class="mode__head">
-              <span class="mode__tag">C &middot; Relay</span>
-              <h3>NAT'd / remote access</h3>
-              <p>Reach your home Gateway from anywhere with a thin WSS tunnel &mdash; no public port, no VPN.</p>
-            </header>
-            <pre class="code"><code><span class="c-c"># Gateway side &mdash; flip the tunnel on:</span>
+            <article class="mode">
+              <header class="mode__head">
+                <span class="mode__tag">C &middot; Relay</span>
+                <h3>NAT'd / remote access</h3>
+                <p>Reach your home Gateway from anywhere with a thin WSS tunnel &mdash; no public port, no VPN.</p>
+              </header>
+              <pre class="code"><code><span class="c-c"># Gateway side &mdash; flip the tunnel on:</span>
 <span class="c-cd">$</span> <span class="c-cmd">acowork relay</span> enable wss://relay.example.com/tunnel
 <span class="c-ok">&#10003;</span> tunnel established &middot; gw-id: 7f3a-&hellip;
 
 <span class="c-c"># Desktop side &mdash; Settings &rarr; Connection: Relay</span>
-<span class="c-c"># URL: https://&lt;gw-id&gt;.relay.example.com</span>
+<span class="c-c"># URL: https://<gw-id>.relay.example.com</span>
 <span class="c-c"># Login with your normal account.</span></code></pre>
-          </article>
-
+            </article>
+          </div>
         </div>
 
-        <p class="start-hint">More in the upstream <a href="https://github.com/tranxon/ACowork/tree/develop/docs/design/zh" target="_blank" rel="noopener">design docs</a> and <a href="https://github.com/tranxon/ACowork/blob/develop/AGENTS.md" target="_blank" rel="noopener">AGENTS.md</a>.</p>
+        <p class="start-hint">More in the upstream <a href="https://github.com/tranxon/ACowork/docs/design/zh" target="_blank" rel="noopener">design docs</a> and <a href="https://github.com/tranxon/ACowork/AGENTS.md" target="_blank" rel="noopener">AGENTS.md</a>.</p>
       </div>
     </section>
   </main>
@@ -279,9 +347,9 @@ model    = <span class="c-str">"deepseek-v4-flash"</span>
       <img class="footer__logo" src="assets/logo-gray.svg" alt="ACowork" width="120" height="32" />
       <p class="footer__copy">&copy; <span id="year">2025</span> ACowork contributors &middot; Apache-2.0 &middot; Pronounced <em>A-Cowork</em>.</p>
       <nav class="footer__links" aria-label="Footer">
-        <a href="https://github.com/acowork/ACoworkWebsite" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://github.com/tranxon/ACowork/blob/develop/LICENSE" target="_blank" rel="noopener">License</a>
-        <a href="https://github.com/tranxon/ACowork/blob/develop/AGENTS.md" target="_blank" rel="noopener">AGENTS.md</a>
+        <a href="https://github.com/acowork/ACowork" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://github.com/tranxon/ACowork/LICENSE" target="_blank" rel="noopener">License</a>
+        <a href="https://github.com/tranxon/ACowork/AGENTS.md" target="_blank" rel="noopener">AGENTS.md</a>
       </nav>
     </div>
   </footer>
