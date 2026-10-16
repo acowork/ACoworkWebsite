@@ -64,5 +64,59 @@
       }
     });
   });
-})();
 
+  // --- Platform tabs (macOS / Windows / Linux) ---
+  // Multiple .ptabs on the page can share a single platform state by
+  // declaring the same data-ptabs-group. Switching Windows in the
+  // Download block also switches Windows in every Get Started mode
+  // card, so the user picks the OS once. Implemented with event
+  // delegation on document + a one-time group index.
+  const tabGroups = new Map();
+  document.querySelectorAll('[data-ptabs-group]').forEach((el) => {
+    const g = el.dataset.tabsGroup;
+    if (!tabGroups.has(g)) tabGroups.set(g, []);
+    tabGroups.get(g).push(el);
+  });
+
+  const activateTab = (group, target) => {
+    const members = tabGroups.get(group);
+    if (!members) return;
+    members.forEach((root) => {
+      root.querySelectorAll('[data-ptab]').forEach((btn) => {
+        const on = btn.dataset.ptab === target;
+        btn.classList.toggle('is-active', on);
+        btn.setAttribute('aria-selected', String(on));
+      });
+      root.querySelectorAll('[data-ptab-pane]').forEach((pane) => {
+        const on = pane.dataset.ptabPane === target;
+        pane.classList.toggle('is-active', on);
+        if (on) pane.removeAttribute('hidden');
+        else pane.setAttribute('hidden', '');
+      });
+    });
+  };
+
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-ptab]');
+    if (!btn) return;
+    const root = btn.closest('[data-ptabs-group]');
+    if (!root) return;
+    activateTab(root.dataset.tabsGroup, btn.dataset.ptab);
+  });
+
+  // Arrow-key navigation between tab buttons (W3C ARIA tab pattern,
+  // light version: just left/right wrap, no Home/End).
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
+    const btn = e.target.closest('[data-ptab]');
+    if (!btn) return;
+    const root = btn.closest('[data-ptabs-group]');
+    if (!root) return;
+    e.preventDefault();
+    const all = Array.from(root.querySelectorAll('[data-ptab]'));
+    const i = all.indexOf(btn);
+    const next = all[(i + (e.key === 'ArrowRight' ? 1 : -1) + all.length) % all.length];
+    activateTab(root.dataset.tabsGroup, next.dataset.ptab);
+    next.focus();
+  });
+})();

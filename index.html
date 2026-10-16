@@ -161,25 +161,78 @@ $ <span class="c-cmd">./acowork-node start</span> \
 
         <div class="dl-build">
           <p class="dl-build__title">Or build from source &mdash; component by component:</p>
-          <div class="terminal">
-            <div class="terminal__head">
-              <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
-              <span class="terminal__url">shell: ~/ACowork</span>
+
+          <div class="ptabs" data-ptabs-group="platform">
+            <div class="ptabs__bar" role="tablist" aria-label="Build platform">
+              <button type="button" class="ptabs__btn is-active" data-ptab="macos"   role="tab" aria-selected="true">macOS</button>
+              <button type="button" class="ptabs__btn"           data-ptab="windows" role="tab" aria-selected="false">Windows</button>
+              <button type="button" class="ptabs__btn"           data-ptab="linux"   role="tab" aria-selected="false">Linux</button>
             </div>
-            <pre class="code terminal__body"><code><span class="c-cd">$</span> git clone https://github.com/tranxon/ACowork
+
+            <div class="ptabs__pane is-active" data-ptab-pane="macos" role="tabpanel">
+              <div class="terminal">
+                <div class="terminal__head">
+                  <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
+                  <span class="terminal__url">zsh: ~/ACowork</span>
+                </div>
+                <pre class="code terminal__body"><code><span class="c-c"># 0) Get the source (cross-platform; same on every OS)</span>
+<span class="c-cd">$</span> git clone https://github.com/tranxon/ACowork
 <span class="c-cd">$</span> cd ACowork
 
 <span class="c-c"># 1) Core &mdash; Gateway + Runtime + Node Agent (release profile)</span>
 <span class="c-cd">$</span> ./dev/common/build_core.sh
 
-<span class="c-c"># 2) Desktop App &mdash; per-OS packaging</span>
-<span class="c-cd">$</span> ./dev/desktop/macos/package_desktop_macos.sh        <span class="c-c"># macOS  &rarr; .app / .dmg</span>
-<span class="c-cd">$</span> ./dev/desktop/windows/package_desktop_windows.ps1   <span class="c-c"># Win    &rarr; .msi / NSIS</span>
-<span class="c-cd">$</span> ./dev/desktop/linux/package_desktop_linux.sh        <span class="c-c"># Linux  &rarr; .deb / .rpm / AppImage</span>
+<span class="c-c"># 2) Desktop App &mdash; macOS (.app / .dmg)</span>
+<span class="c-cd">$</span> ./dev/desktop/macos/package_desktop_macos.sh
+
+<span class="c-c"># 3) Mobile App &mdash; Android (signed release; .ps1 via pwsh on macOS)</span>
+<span class="c-cd">$</span> pwsh ./dev/android/build_mobile.ps1</code></pre>
+              </div>
+            </div>
+
+            <div class="ptabs__pane" data-ptab-pane="windows" role="tabpanel" hidden>
+              <div class="terminal">
+                <div class="terminal__head">
+                  <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
+                  <span class="terminal__url">pwsh: ~\ACowork</span>
+                </div>
+                <pre class="code terminal__body"><code><span class="c-c"># 0) Get the source (cross-platform; same on every OS)</span>
+<span class="c-cd">$</span> git clone https://github.com/tranxon/ACowork
+<span class="c-cd">$</span> cd ACowork
+
+<span class="c-c"># 1) Core &mdash; Gateway + Runtime + Node Agent (release profile)</span>
+<span class="c-cd">$</span> .\dev\common\build_core.ps1
+
+<span class="c-c"># 2) Desktop App &mdash; Windows (.msi / NSIS)</span>
+<span class="c-cd">$</span> .\dev\desktop\windows\package_desktop_windows.ps1
 
 <span class="c-c"># 3) Mobile App &mdash; Android (signed release)</span>
-<span class="c-cd">$</span> ./dev/android/build_mobile.ps1</code></pre>
+<span class="c-cd">$</span> .\dev\android\build_mobile.ps1</code></pre>
+              </div>
+            </div>
+
+            <div class="ptabs__pane" data-ptab-pane="linux" role="tabpanel" hidden>
+              <div class="terminal">
+                <div class="terminal__head">
+                  <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
+                  <span class="terminal__url">bash: ~/ACowork</span>
+                </div>
+                <pre class="code terminal__body"><code><span class="c-c"># 0) Get the source (cross-platform; same on every OS)</span>
+<span class="c-cd">$</span> git clone https://github.com/tranxon/ACowork
+<span class="c-cd">$</span> cd ACowork
+
+<span class="c-c"># 1) Core &mdash; Gateway + Runtime + Node Agent (release profile)</span>
+<span class="c-cd">$</span> ./dev/common/build_core.sh
+
+<span class="c-c"># 2) Desktop App &mdash; Linux (.deb / .rpm / AppImage)</span>
+<span class="c-cd">$</span> ./dev/desktop/linux/package_desktop_linux.sh
+
+<span class="c-c"># 3) Mobile App &mdash; Android (signed release; .ps1 via pwsh on Linux)</span>
+<span class="c-cd">$</span> pwsh ./dev/android/build_mobile.ps1</code></pre>
+              </div>
+            </div>
           </div>
+
           <p class="dl-build__note">Need prebuilt convenience? Watch / star <a href="https://github.com/tranxon/ACowork" target="_blank" rel="noopener">the GitHub repo</a> to be notified when release artifacts ship.</p>
         </div>
       </div>
@@ -252,15 +305,48 @@ $ <span class="c-cmd">./acowork-node start</span> \
               <div class="mode__stack">
                 <div class="mode__step">
                   <span class="mode__step-label">Gateway</span>
-                  <div class="terminal">
-                    <div class="terminal__head">
-                      <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
-                      <span class="terminal__url">acowork@gateway: ~</span>
+                  <div class="ptabs" data-ptabs-group="platform">
+                    <div class="ptabs__bar" role="tablist" aria-label="Platform">
+                      <button type="button" class="ptabs__btn is-active" data-ptab="macos"   role="tab" aria-selected="true">macOS</button>
+                      <button type="button" class="ptabs__btn"           data-ptab="windows" role="tab" aria-selected="false">Windows</button>
+                      <button type="button" class="ptabs__btn"           data-ptab="linux"   role="tab" aria-selected="false">Linux</button>
                     </div>
-                    <pre class="code terminal__body"><code><span class="c-cd">$</span> <span class="c-cmd">./acowork-gateway</span>
+                    <div class="ptabs__pane is-active" data-ptab-pane="macos" role="tabpanel">
+                      <div class="terminal">
+                        <div class="terminal__head">
+                          <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
+                          <span class="terminal__url">acowork@gateway: ~</span>
+                        </div>
+                        <pre class="code terminal__body"><code><span class="c-cd">$</span> <span class="c-cmd">./acowork-gateway</span>
 <span class="c-ok">&#10003;</span> Gateway     listening on  http://127.0.0.1:19876
 <span class="c-ok">&#10003;</span> MQTT broker on              127.0.0.1:19875
 <span class="c-ok">&#10003;</span> Local Node Agent enrolled (uuid=local-&hellip;)</code></pre>
+                      </div>
+                    </div>
+                    <div class="ptabs__pane" data-ptab-pane="windows" role="tabpanel" hidden>
+                      <div class="terminal">
+                        <div class="terminal__head">
+                          <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
+                          <span class="terminal__url">acowork@gateway: ~</span>
+                        </div>
+                        <pre class="code terminal__body"><code><span class="c-cd">$</span> <span class="c-cmd">.\acowork-gateway.exe</span>
+<span class="c-ok">&#10003;</span> Gateway     listening on  http://127.0.0.1:19876
+<span class="c-ok">&#10003;</span> MQTT broker on              127.0.0.1:19875
+<span class="c-ok">&#10003;</span> Local Node Agent enrolled (uuid=local-&hellip;)</code></pre>
+                      </div>
+                    </div>
+                    <div class="ptabs__pane" data-ptab-pane="linux" role="tabpanel" hidden>
+                      <div class="terminal">
+                        <div class="terminal__head">
+                          <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
+                          <span class="terminal__url">acowork@gateway: ~</span>
+                        </div>
+                        <pre class="code terminal__body"><code><span class="c-cd">$</span> <span class="c-cmd">./acowork-gateway</span>
+<span class="c-ok">&#10003;</span> Gateway     listening on  http://127.0.0.1:19876
+<span class="c-ok">&#10003;</span> MQTT broker on              127.0.0.1:19875
+<span class="c-ok">&#10003;</span> Local Node Agent enrolled (uuid=local-&hellip;)</code></pre>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="mode__step">
@@ -280,30 +366,100 @@ $ <span class="c-cmd">./acowork-node start</span> \
               <div class="mode__stack">
                 <div class="mode__step">
                   <span class="mode__step-label">Gateway &middot; controller host</span>
-                  <div class="terminal">
-                    <div class="terminal__head">
-                      <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
-                      <span class="terminal__url">acowork@gateway: ~</span>
+                  <div class="ptabs" data-ptabs-group="platform">
+                    <div class="ptabs__bar" role="tablist" aria-label="Platform">
+                      <button type="button" class="ptabs__btn is-active" data-ptab="macos"   role="tab" aria-selected="true">macOS</button>
+                      <button type="button" class="ptabs__btn"           data-ptab="windows" role="tab" aria-selected="false">Windows</button>
+                      <button type="button" class="ptabs__btn"           data-ptab="linux"   role="tab" aria-selected="false">Linux</button>
                     </div>
-                    <pre class="code terminal__body"><code><span class="c-cd">$</span> <span class="c-cmd">./acowork-gateway</span> \
+                    <div class="ptabs__pane is-active" data-ptab-pane="macos" role="tabpanel">
+                      <div class="terminal">
+                        <div class="terminal__head">
+                          <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
+                          <span class="terminal__url">acowork@gateway: ~</span>
+                        </div>
+                        <pre class="code terminal__body"><code><span class="c-cd">$</span> <span class="c-cmd">./acowork-gateway</span> \
       <span class="c-cmd">--addr</span>            0.0.0.0:19876 \
       <span class="c-cmd">--mqtt-addr</span>       0.0.0.0:19875 \
       <span class="c-cmd">--advertise-host</span>  gw.lan
 <span class="c-ok">&#10003;</span> Gateway     listening on  http://gw.lan:19876
 <span class="c-ok">&#10003;</span> MQTT broker on              gw.lan:19875</code></pre>
+                      </div>
+                    </div>
+                    <div class="ptabs__pane" data-ptab-pane="windows" role="tabpanel" hidden>
+                      <div class="terminal">
+                        <div class="terminal__head">
+                          <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
+                          <span class="terminal__url">acowork@gateway: ~</span>
+                        </div>
+                        <pre class="code terminal__body"><code><span class="c-cd">$</span> <span class="c-cmd">.\acowork-gateway.exe</span> `
+      <span class="c-cmd">--addr</span>            0.0.0.0:19876 `
+      <span class="c-cmd">--mqtt-addr</span>       0.0.0.0:19875 `
+      <span class="c-cmd">--advertise-host</span>  gw.lan
+<span class="c-ok">&#10003;</span> Gateway     listening on  http://gw.lan:19876
+<span class="c-ok">&#10003;</span> MQTT broker on              gw.lan:19875</code></pre>
+                      </div>
+                    </div>
+                    <div class="ptabs__pane" data-ptab-pane="linux" role="tabpanel" hidden>
+                      <div class="terminal">
+                        <div class="terminal__head">
+                          <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
+                          <span class="terminal__url">acowork@gateway: ~</span>
+                        </div>
+                        <pre class="code terminal__body"><code><span class="c-cd">$</span> <span class="c-cmd">./acowork-gateway</span> \
+      <span class="c-cmd">--addr</span>            0.0.0.0:19876 \
+      <span class="c-cmd">--mqtt-addr</span>       0.0.0.0:19875 \
+      <span class="c-cmd">--advertise-host</span>  gw.lan
+<span class="c-ok">&#10003;</span> Gateway     listening on  http://gw.lan:19876
+<span class="c-ok">&#10003;</span> MQTT broker on              gw.lan:19875</code></pre>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="mode__step">
                   <span class="mode__step-label">Node &middot; every Runtime host (GPU box, workstation, VM)</span>
-                  <div class="terminal">
-                    <div class="terminal__head">
-                      <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
-                      <span class="terminal__url">acowork@node: ~</span>
+                  <div class="ptabs" data-ptabs-group="platform">
+                    <div class="ptabs__bar" role="tablist" aria-label="Platform">
+                      <button type="button" class="ptabs__btn is-active" data-ptab="macos"   role="tab" aria-selected="true">macOS</button>
+                      <button type="button" class="ptabs__btn"           data-ptab="windows" role="tab" aria-selected="false">Windows</button>
+                      <button type="button" class="ptabs__btn"           data-ptab="linux"   role="tab" aria-selected="false">Linux</button>
                     </div>
-                    <pre class="code terminal__body"><code><span class="c-cd">$</span> <span class="c-cmd">./acowork-node start</span> \
+                    <div class="ptabs__pane is-active" data-ptab-pane="macos" role="tabpanel">
+                      <div class="terminal">
+                        <div class="terminal__head">
+                          <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
+                          <span class="terminal__url">acowork@node: ~</span>
+                        </div>
+                        <pre class="code terminal__body"><code><span class="c-cd">$</span> <span class="c-cmd">./acowork-node start</span> \
       <span class="c-cmd">--gateway</span> gw.lan:19875 \
       <span class="c-cmd">--token</span>   <span class="c-str">$ENROLL_TOKEN</span>
 <span class="c-ok">&#10003;</span> enrolled as node-&lt;uuid&gt; &middot; Runtime host ready</code></pre>
+                      </div>
+                    </div>
+                    <div class="ptabs__pane" data-ptab-pane="windows" role="tabpanel" hidden>
+                      <div class="terminal">
+                        <div class="terminal__head">
+                          <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
+                          <span class="terminal__url">acowork@node: ~</span>
+                        </div>
+                        <pre class="code terminal__body"><code><span class="c-cd">$</span> <span class="c-cmd">.\acowork-node.exe start</span> `
+      <span class="c-cmd">--gateway</span> gw.lan:19875 `
+      <span class="c-cmd">--token</span>   <span class="c-str">$env:ENROLL_TOKEN</span>
+<span class="c-ok">&#10003;</span> enrolled as node-&lt;uuid&gt; &middot; Runtime host ready</code></pre>
+                      </div>
+                    </div>
+                    <div class="ptabs__pane" data-ptab-pane="linux" role="tabpanel" hidden>
+                      <div class="terminal">
+                        <div class="terminal__head">
+                          <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
+                          <span class="terminal__url">acowork@node: ~</span>
+                        </div>
+                        <pre class="code terminal__body"><code><span class="c-cd">$</span> <span class="c-cmd">./acowork-node start</span> \
+      <span class="c-cmd">--gateway</span> gw.lan:19875 \
+      <span class="c-cmd">--token</span>   <span class="c-str">$ENROLL_TOKEN</span>
+<span class="c-ok">&#10003;</span> enrolled as node-&lt;uuid&gt; &middot; Runtime host ready</code></pre>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <p class="mode__apps"><strong>Desktop</strong> &mdash; Settings &rarr; <em>Gateway</em> tab &rarr; switch to <em>Remote (LAN)</em> &rarr; enter <code class="inline">http://gw.lan:19876</code>. &middot; <strong>Mobile</strong> &mdash; same URL; works on the phone over Wi-Fi.</p>
@@ -319,15 +475,50 @@ $ <span class="c-cmd">./acowork-node start</span> \
               <div class="mode__stack">
                 <div class="mode__step">
                   <span class="mode__step-label">Gateway &middot; flip the tunnel on (no restart)</span>
-                  <div class="terminal">
-                    <div class="terminal__head">
-                      <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
-                      <span class="terminal__url">acowork@gateway: ~</span>
+                  <div class="ptabs" data-ptabs-group="platform">
+                    <div class="ptabs__bar" role="tablist" aria-label="Platform">
+                      <button type="button" class="ptabs__btn is-active" data-ptab="macos"   role="tab" aria-selected="true">macOS</button>
+                      <button type="button" class="ptabs__btn"           data-ptab="windows" role="tab" aria-selected="false">Windows</button>
+                      <button type="button" class="ptabs__btn"           data-ptab="linux"   role="tab" aria-selected="false">Linux</button>
                     </div>
-                    <pre class="code terminal__body"><code><span class="c-cd">$</span> <span class="c-cmd">curl -X POST http://127.0.0.1:19876/api/relay/enable</span> \
-      -H 'Content-Type: application/json' \
-      -d '{"url": "wss://relay.example.com/tunnel"}'
+                    <div class="ptabs__pane is-active" data-ptab-pane="macos" role="tabpanel">
+                      <div class="terminal">
+                        <div class="terminal__head">
+                          <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
+                          <span class="terminal__url">acowork@gateway: ~</span>
+                        </div>
+                        <pre class="code terminal__body"><code><span class="c-cd">$</span> <span class="c-cmd">curl -X POST http://127.0.0.1:19876/api/relay/enable</span> \
+      -H <span class="c-str">'Content-Type: application/json'</span> \
+      -d <span class="c-str">'{"url": "wss://relay.example.com/tunnel"}'</span>
 <span class="c-ok">&#10003;</span> tunnel established &middot; gw-id: 7f3a-&hellip;</code></pre>
+                      </div>
+                    </div>
+                    <div class="ptabs__pane" data-ptab-pane="windows" role="tabpanel" hidden>
+                      <div class="terminal">
+                        <div class="terminal__head">
+                          <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
+                          <span class="terminal__url">acowork@gateway: ~</span>
+                        </div>
+                        <pre class="code terminal__body"><code><span class="c-cd">$</span> <span class="c-cmd">$body</span> = <span class="c-str">'{&quot;url&quot;: &quot;wss://relay.example.com/tunnel&quot;}'</span>
+<span class="c-cd">$</span> <span class="c-cmd">curl.exe</span> -X POST http://127.0.0.1:19876/api/relay/enable `
+        -H <span class="c-str">"Content-Type: application/json"</span> `
+        -d <span class="c-cmd">$body</span>
+<span class="c-ok">&#10003;</span> tunnel established &middot; gw-id: 7f3a-&hellip;</code></pre>
+                        <p class="mode__note">PowerShell's <code class="inline">curl</code> is an alias for <code class="inline">Invoke-WebRequest</code> &mdash; call <code class="inline">curl.exe</code> explicitly for the same behavior as bash.</p>
+                      </div>
+                    </div>
+                    <div class="ptabs__pane" data-ptab-pane="linux" role="tabpanel" hidden>
+                      <div class="terminal">
+                        <div class="terminal__head">
+                          <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
+                          <span class="terminal__url">acowork@gateway: ~</span>
+                        </div>
+                        <pre class="code terminal__body"><code><span class="c-cd">$</span> <span class="c-cmd">curl -X POST http://127.0.0.1:19876/api/relay/enable</span> \
+      -H <span class="c-str">'Content-Type: application/json'</span> \
+      -d <span class="c-str">'{"url": "wss://relay.example.com/tunnel"}'</span>
+<span class="c-ok">&#10003;</span> tunnel established &middot; gw-id: 7f3a-&hellip;</code></pre>
+                      </div>
+                    </div>
                   </div>
                 </div>
                 <div class="mode__step">

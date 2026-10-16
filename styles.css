@@ -279,6 +279,52 @@ p  { margin: 0 0 1em; }
 .code { margin: 0; padding: 14px 16px; background: var(--bg-2); border: 1px solid var(--line); border-radius: 10px; font-size: .82rem; line-height: 1.6; overflow-x: auto; }
 .mode .code { background: var(--bg-3); }
 
+/* Platform tabs (macOS / Windows / Linux) — sits above a .terminal
+   block, picks which OS variant of the command to show. Multiple
+   .ptabs on the page can share a single platform state by declaring
+   the same data-ptabs-group — switching Windows in the Download
+   block keeps Windows in every Get Started mode card, so the user
+   picks the OS once. */
+.ptabs { margin: 0; }
+.ptabs__bar {
+  display: flex;
+  gap: 2px;
+  padding: 0 4px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: -1px;     /* collapse bar's border with terminal's top edge below */
+}
+.ptabs__btn {
+  padding: 8px 14px;
+  font-family: 'Inter', sans-serif;
+  font-size: .82rem;
+  font-weight: 500;
+  color: var(--text-dim);
+  background: transparent;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: color .15s, border-color .15s, font-weight .15s;
+  user-select: none;
+}
+.ptabs__btn:hover { color: var(--text); }
+.ptabs__btn:focus-visible { outline: 2px solid var(--blue); outline-offset: -2px; border-radius: 2px; }
+.ptabs__btn.is-active {
+  color: var(--text);
+  font-weight: 600;
+  border-bottom-color: var(--blue);
+}
+.ptabs__pane { display: none; }
+.ptabs__pane.is-active { display: block; }
+
+/* When a .terminal follows a .ptabs, drop the terminal's top border
+   so the tab bar's bottom border IS the terminal's top edge — they
+   read as one continuous window chrome. */
+.ptabs__pane > .terminal {
+  border-top: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
 /* Force .code body inside .terminal to transparent — otherwise .code's
    own blue-gray background (#2a3142) bleeds through the terminal's
    dark gradient. Must live in main block, not @media light, so it
