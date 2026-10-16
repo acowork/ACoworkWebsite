@@ -39,7 +39,7 @@
   // Pulls stars count via GitHub's public REST API. If the call fails
   // (rate limit, offline, CORS), the badge quietly falls back to a dash.
   const starsEl = document.getElementById('stars-badge');
-  const REPO = 'tranxon/ACowork'; // upstream source repo
+  const REPO = 'acowork/ACowork'; // upstream source repo
   if (starsEl) {
     fetch('https://api.github.com/repos/' + REPO, { headers: { Accept: 'application/vnd.github+json' } })
       .then((r) => (r.ok ? r.json() : null))
