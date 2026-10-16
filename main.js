@@ -64,38 +64,5 @@
       }
     });
   });
-
-  // --- Install method tabs (Get Started) ---
-  // Accessible tablist: click + ArrowLeft/Right + Home/End, roving tabindex,
-  // ARIA state synced between tab buttons and tab panels.
-  const tablist = document.querySelector('.install-tabs');
-  if (tablist) {
-    const tabs = Array.from(tablist.querySelectorAll('[role="tab"]'));
-    const panels = tabs.map((t) => document.getElementById(t.getAttribute('aria-controls')));
-    const activate = (idx, focus) => {
-      tabs.forEach((tab, i) => {
-        const active = i === idx;
-        tab.classList.toggle('is-active', active);
-        tab.setAttribute('aria-selected', String(active));
-        tab.setAttribute('tabindex', active ? '0' : '-1');
-        panels[i].hidden = !active;
-      });
-      if (focus) tabs[idx].focus();
-    };
-    tabs.forEach((tab, i) => {
-      tab.addEventListener('click', () => activate(i, false));
-      tab.addEventListener('keydown', (e) => {
-        let next = -1;
-        if (e.key === 'ArrowRight') next = (i + 1) % tabs.length;
-        else if (e.key === 'ArrowLeft') next = (i - 1 + tabs.length) % tabs.length;
-        else if (e.key === 'Home') next = 0;
-        else if (e.key === 'End') next = tabs.length - 1;
-        if (next !== -1) {
-          e.preventDefault();
-          activate(next, true);
-        }
-      });
-    });
-  }
 })();
 
