@@ -451,14 +451,25 @@ p  { margin: 0 0 1em; }
   .c-ok  { color: #1d8a5a; }            /* brand green — was #15803d */
   .c-c   { color: #6b7280; }            /* slate — was #6f7886 (slight tweak for light) */
 
-  /* Terminal stays dark (like real macOS Terminal on a light desktop) —
-     keep syntax colors bright inside it so the code stays readable. */
-  .terminal .c-cmd { color: #f7c948; }
-  .terminal .c-cd  { color: #ff8a3d; }
-  .terminal .c-tag { color: #ff8a3d; }
-  .terminal .c-str { color: #b8e986; }
-  .terminal .c-ok  { color: #50c878; }
-  .terminal .c-c   { color: #6f7886; }
+  /* ===== Terminal: mirror the hero card — light surface in light mode =====
+     .hero__card gets `background: #ffffff` above, so the first-screen
+     shell goes light in light theme. .terminal must match it; otherwise
+     the hero shell turns white while every shell below the fold stays
+     hardcoded pure black (the main-block linear-gradient), which reads
+     as a bug. Same treatment, same colors, same reason. */
+  .terminal { background: #ffffff; }
+  .terminal__head { background: rgba(0, 0, 0, .04); }
+
+  /* Syntax colors inside .terminal follow the theme like everywhere else —
+     the dark-background overrides (bright amber/orange on black) are
+     retracted here so .terminal inherits the light-theme .c-* values
+     declared above. Delete these and .terminal text goes light-on-light. */
+  .terminal .c-cmd { color: #b45309; }            /* deep amber */
+  .terminal .c-cd  { color: #c2410c; }            /* deep orange */
+  .terminal .c-tag { color: #be185d; }            /* deep pink */
+  .terminal .c-str { color: #4d7c0f; }            /* deep lime */
+  .terminal .c-ok  { color: #1d8a5a; }            /* brand green */
+  .terminal .c-c   { color: #6b7280; }            /* slate */
 
   /* Override .mode .code (#dde1e6) inside .terminal — must sit after
      light-theme .mode .code in source order to win. */
