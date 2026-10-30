@@ -33,13 +33,7 @@ Then visit <http://localhost:8080>.
 ├── index.html         # Single-page site (Hero / Download / Features / Get Started / CTA)
 ├── styles.css         # All styles, color tokens, responsive, dark+light
 ├── main.js            # Nav scroll, mobile menu, year stamp, GitHub stars fetch
-├── _headers           # Cloudflare Pages response headers (.agent → attachment)
-├── agents/              # Agent Library — browse + download signed .agent packages
-│   ├── index.html         # Page shell, toolbar, cards, install + submit sections
-│   ├── agents.js          # Client-side search / filter / detail dialog (no backend)
-│   ├── data/agents.json   # GENERATED — never hand-edit (see below)
-│   ├── downloads/*.agent  # Signed packages, copied from the ACowork repo
-│   └── avatars/*          # Agent avatars, copied from the ACowork repo
+├── _headers           # Cloudflare Pages response headers (security only)
 ├── assets/
 │   ├── logo.svg         # Brand mark (warm yellow → orange gradient)
 │   ├── logo-gray.svg    # Footer-friendly monochrome logo
@@ -53,53 +47,24 @@ Then visit <http://localhost:8080>.
 └── .gitignore
 ```
 
-## Agent Library
+## Agents
 
-`agents/` is a static directory of ACowork agents. Its contents are **generated**,
-not authored here — the single source of truth is `examples/*/manifest.toml` in the
-[ACowork](https://github.com/acowork/ACowork) repo.
+There is no agent page on this site. The registry lives in the Agent Hub
+(<https://hub.acowork.ai>), which is the single source for browsing, searching and
+downloading `.agent` packages — official ones included, so the marketing site only
+needs one link to it.
 
-After adding or changing an example agent, regenerate from the ACowork repo:
+The nav points there directly:
 
-```bash
-# 1. build + sign the package
-./dev/common/build-agent.sh examples/my-agent
-
-# 2. project it into this site (writes agents/data/agents.json, copies .agent + avatar)
-python dev/common/sync-agent-hub.py --site ../ACoworkWebSite
-
-# 3. verify the hub still behaves
-NODE_PATH=<dir-with-jsdom>/node_modules node dev/agent-hub/hub.test.js ../ACoworkWebSite
+```html
+<a href="https://hub.acowork.ai">Agent Hub</a>
 ```
 
-The test suite runs the page's real JavaScript in jsdom **and** in headless Chrome
-(both over `file://` and `http://`), so a CSS regression that makes `hidden`
-stop working is caught. Set `CHROME_PATH` if Chrome is not in a standard location.
-
-`sync-agent-hub.py` fails loudly on a missing package, a missing manifest field, or
-an unknown `role` — it never silently drops an agent. Stale packages and avatars are
-pruned, so a deleted example cannot keep downloading.
-
-It writes two projections of the same manifests: `agents/data/agents.json` (the live
-index) and a `<script type="application/json">` snapshot inside `agents/index.html`.
-The snapshot is the `file://` fallback — browsers block `fetch()` of a local file,
-so opening `agents/index.html` straight off disk would otherwise show nothing. Over
-HTTP the JSON file wins and the snapshot is ignored.
-
-There is deliberately **no backend**: search, filtering and detail views all run in the
-browser against `data/agents.json` (~15 KB). Publishing happens through a pull request
-to the ACowork repo, not an upload form. See `docs/prd/zh/prd-agent-hub.md` in the
-ACowork repo for the reasoning and the non-goals.
-
-### Previewing locally
-
-Opening `index.html` directly from disk works, but the browser blocks `fetch()` of
-local files, so the Agent Library falls back to its embedded snapshot and shows an
-"offline snapshot" notice. For the live experience, serve the directory:
-
-```bash
-python3 -m http.server 8080      # then open http://localhost:8080/agents/
-```
+Agents are published by merging into the
+[ACoworkAgentHub](https://github.com/acowork/ACoworkAgentHub) repo; see its
+`docs/publishing.md`. Nothing here projects, copies or snapshots a package, so
+there is no second copy to go stale — that was the previous design and it is
+gone.
 
 ## Editing content
 
@@ -116,13 +81,15 @@ The project is already connected to this repo; a push to `main` builds and publi
    — what you commit is what gets served, there is no build step.
 3. Every branch and PR gets a `*.pages.dev` preview URL automatically.
 
-`_headers` is read by Pages at the edge; it forces `Content-Disposition: attachment`
-on `/agents/downloads/*` so a `.agent` URL opened directly downloads instead of
-rendering as text.
+`_headers` is read by Pages at the edge. It now only sets
+`X-Content-Type-Options: nosniff`; the rule that forced `Content-Disposition:
+attachment` on `/agents/downloads/*` went away with that directory, because agent
+packages are served by the Agent Hub, not by this site.
 
 > Note: `*.pages.dev` has no mainland-China PoP and cannot be ICP-filed. Serve the
-> site from a custom domain if mainland users matter; the download links are
-> same-origin, so they inherit whatever the site's reachability is.
+> site from a custom domain if mainland users matter. Reachability has three names
+> to weigh here, not one: this site, `hub.acowork.ai` (agent packages, also Cloudflare)
+> and GitHub Releases (the app binaries) — a user can reach one and not the others.
 
 The previous instructions here described a GitHub Pages setup; the site has since moved
 to Cloudflare Pages.
