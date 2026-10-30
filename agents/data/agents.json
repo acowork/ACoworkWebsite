@@ -1,0 +1,425 @@
+{
+  "schema_version": 2,
+  "generated_at": "2026-10-29T03:14:05Z",
+  "source": {
+    "repo": "acowork/ACowork",
+    "ref": "d0bdaaab1f4ca336145f00330b9d577c17733d74",
+    "path": "examples/",
+    "generator": "dev/common/sync-agent-hub.py"
+  },
+  "categories": [
+    {
+      "key": "engineering",
+      "label": "Engineering"
+    },
+    {
+      "key": "knowledge",
+      "label": "Knowledge"
+    },
+    {
+      "key": "product",
+      "label": "Product"
+    },
+    {
+      "key": "project",
+      "label": "Project"
+    },
+    {
+      "key": "quality",
+      "label": "Quality"
+    }
+  ],
+  "agents": [
+    {
+      "agent_id": "com.acowork.software-architect",
+      "version": "1.0.0",
+      "name": "Architect",
+      "display_name": "Architect",
+      "role": "Software Architect",
+      "description": "A principal-level software architect skilled in requirements analysis, system design, architecture review, module boundaries, interface contracts, scalability, security, and technical planning.",
+      "author": "ACowork Team",
+      "category": "engineering",
+      "category_label": "Engineering",
+      "runtime_version": "0.1.0",
+      "avatar": "avatars/com.acowork.software-architect.jpg",
+      "permissions": [
+        "FilesystemRead",
+        "FilesystemWrite",
+        "Network",
+        "Shell"
+      ],
+      "high_risk_permissions": [
+        "FilesystemWrite",
+        "Shell"
+      ],
+      "capabilities": [
+        {
+          "key": "architecture_risk_assessment",
+          "description": "Assess architectural risks, blast radius, reversibility, rollback paths, and operational failure modes"
+        },
+        {
+          "key": "architecture_strategy",
+          "description": "Create architecture strategies with explicit trade-offs, decision records, and migration paths"
+        },
+        {
+          "key": "system_design_review",
+          "description": "Review system designs for boundaries, coupling, scalability, reliability, security, and operability"
+        },
+        {
+          "key": "technical_planning",
+          "description": "Convert approved designs into implementation plans with clear module ownership, interfaces, tests, and rollout steps"
+        }
+      ],
+      "skills": [
+        "architecture-risk-assessment",
+        "architecture-strategy",
+        "system-design-review",
+        "technical-planning"
+      ],
+      "package": {
+        "file": "downloads/com.acowork.software-architect.agent",
+        "size_bytes": 71634,
+        "sha256": "ea3a51b7970532a5264243d61cda04b262976c431604543d0e2bfdebe1ca066a"
+      }
+    },
+    {
+      "agent_id": "github.ponytail",
+      "version": "1.0.0",
+      "name": "Ponytail",
+      "display_name": "Ponytail",
+      "role": "Senior Software Engineer",
+      "description": "The best code is the code you never wrote.",
+      "author": "DietrichGebert",
+      "category": "engineering",
+      "category_label": "Engineering",
+      "runtime_version": "0.1.0",
+      "avatar": "avatars/github.ponytail.png",
+      "permissions": [
+        "FilesystemRead",
+        "FilesystemWrite",
+        "Network",
+        "Shell"
+      ],
+      "high_risk_permissions": [
+        "FilesystemWrite",
+        "Shell"
+      ],
+      "capabilities": [
+        {
+          "key": "architecture_design",
+          "description": "Design system architecture with module breakdown and interface definitions"
+        },
+        {
+          "key": "code_review",
+          "description": "Perform a thorough code review with actionable feedback"
+        },
+        {
+          "key": "debug_assist",
+          "description": "Debug and troubleshoot issues with systematic root-cause analysis"
+        }
+      ],
+      "skills": [
+        "ponytail",
+        "ponytail-audit",
+        "ponytail-debt",
+        "ponytail-gain",
+        "ponytail-help",
+        "ponytail-review"
+      ],
+      "package": {
+        "file": "downloads/github.ponytail.agent",
+        "size_bytes": 168863,
+        "sha256": "0da58af3c5bfdce4c1c4939f34ca901917a6fc6095422b7b436e1910503a8a14"
+      }
+    },
+    {
+      "agent_id": "com.acowork.senior-engineer",
+      "version": "1.0.0",
+      "name": "SSE",
+      "display_name": "SSE",
+      "role": "Senior Software Engineer",
+      "description": "An experienced senior software engineer capable of code review, architecture design, debugging, refactoring, testing, and documentation.",
+      "author": "ACowork Team",
+      "category": "engineering",
+      "category_label": "Engineering",
+      "runtime_version": "0.1.0",
+      "avatar": "avatars/com.acowork.senior-engineer.jpg",
+      "permissions": [
+        "FilesystemRead",
+        "FilesystemWrite",
+        "Network",
+        "Shell"
+      ],
+      "high_risk_permissions": [
+        "FilesystemWrite",
+        "Shell"
+      ],
+      "capabilities": [
+        {
+          "key": "architecture_design",
+          "description": "Design system architecture with module breakdown and interface definitions"
+        },
+        {
+          "key": "code_review",
+          "description": "Perform a thorough code review with actionable feedback"
+        },
+        {
+          "key": "debug_assist",
+          "description": "Debug and troubleshoot issues with systematic root-cause analysis"
+        }
+      ],
+      "skills": [
+        "architecture-design",
+        "code-review",
+        "debugging",
+        "documentation",
+        "refactoring",
+        "testing"
+      ],
+      "package": {
+        "file": "downloads/com.acowork.senior-engineer.agent",
+        "size_bytes": 91742,
+        "sha256": "873dd563ae9ede3ea9586f88a0407c76e6520a79b7823884860d040ec9218f3d"
+      }
+    },
+    {
+      "agent_id": "com.acowork.document-manager",
+      "version": "1.0.0",
+      "name": "Docs",
+      "display_name": "Docs",
+      "role": "Document Manager",
+      "description": "A document management agent skilled in collecting, organizing, archiving, writing, reviewing, converting, and maintaining documentation and knowledge bases.",
+      "author": "ACowork Team",
+      "category": "knowledge",
+      "category_label": "Knowledge",
+      "runtime_version": "0.1.0",
+      "avatar": "avatars/com.acowork.document-manager.jpg",
+      "permissions": [
+        "FilesystemRead",
+        "FilesystemWrite",
+        "Network"
+      ],
+      "high_risk_permissions": [
+        "FilesystemWrite"
+      ],
+      "capabilities": [
+        {
+          "key": "archive_management",
+          "description": "Archive documents with versioning, retention rules, metadata, provenance, and retrieval paths"
+        },
+        {
+          "key": "document_collection",
+          "description": "Collect source documents, references, meeting notes, specs, and links with provenance and scope tracking"
+        },
+        {
+          "key": "document_organization",
+          "description": "Organize documents into clear information architecture, indexes, categories, tags, and navigation"
+        },
+        {
+          "key": "document_quality_review",
+          "description": "Review documents for accuracy, completeness, clarity, structure, consistency, links, and freshness"
+        },
+        {
+          "key": "document_writing",
+          "description": "Write clear technical, product, process, and knowledge-base documentation for target audiences"
+        },
+        {
+          "key": "format_conversion",
+          "description": "Convert documentation between Markdown, HTML, plain text, structured templates, and other supported formats"
+        },
+        {
+          "key": "knowledge_base_maintenance",
+          "description": "Maintain knowledge bases by deduplicating, linking, updating, deprecating, and curating content"
+        }
+      ],
+      "skills": [
+        "archive-management",
+        "document-collection",
+        "document-organization",
+        "document-quality-review",
+        "document-writing",
+        "format-conversion",
+        "knowledge-base-maintenance"
+      ],
+      "package": {
+        "file": "downloads/com.acowork.document-manager.agent",
+        "size_bytes": 71625,
+        "sha256": "c68025f7e7020a6e12d4e8cd7c8d4f3bba9b9d2df69ca1dc44448f83606b897b"
+      }
+    },
+    {
+      "agent_id": "com.acowork.product-manager",
+      "version": "1.0.0",
+      "name": "Product",
+      "display_name": "Product",
+      "role": "Product Manager",
+      "description": "A product manager agent skilled in product strategy, user research, PRD writing, roadmap prioritization, Figma design review, feature acceptance, and launch planning.",
+      "author": "ACowork Team",
+      "category": "product",
+      "category_label": "Product",
+      "runtime_version": "0.1.0",
+      "avatar": "avatars/com.acowork.product-manager.jpg",
+      "permissions": [
+        "FilesystemRead",
+        "FilesystemWrite",
+        "Network"
+      ],
+      "high_risk_permissions": [
+        "FilesystemWrite"
+      ],
+      "capabilities": [
+        {
+          "key": "feature_acceptance",
+          "description": "Validate implemented features against PRD, Figma, acceptance criteria, metrics, and release readiness"
+        },
+        {
+          "key": "figma_design_review",
+          "description": "Review Figma designs for product intent, user flow, UX clarity, states, accessibility, and engineering handoff readiness"
+        },
+        {
+          "key": "launch_planning",
+          "description": "Plan product launches with rollout, communication, analytics, support readiness, risks, and post-launch learning"
+        },
+        {
+          "key": "prd_writing",
+          "description": "Write product requirements with problem framing, user stories, acceptance criteria, metrics, and non-goals"
+        },
+        {
+          "key": "product_strategy",
+          "description": "Define product vision, target users, positioning, goals, bets, and success metrics"
+        },
+        {
+          "key": "roadmap_prioritization",
+          "description": "Prioritize roadmap items using evidence, impact, effort, confidence, risk, and strategic alignment"
+        },
+        {
+          "key": "user_research",
+          "description": "Plan and synthesize user research, interviews, personas, journeys, and opportunity areas"
+        }
+      ],
+      "skills": [
+        "feature-acceptance",
+        "figma-design-review",
+        "launch-planning",
+        "prd-writing",
+        "product-strategy",
+        "roadmap-prioritization",
+        "user-research"
+      ],
+      "package": {
+        "file": "downloads/com.acowork.product-manager.agent",
+        "size_bytes": 74489,
+        "sha256": "655638737650f448b1603d30ac4d84d0fb2d9d36c19846587935aa3679839dd4"
+      }
+    },
+    {
+      "agent_id": "com.acowork.project-manager",
+      "version": "1.0.0",
+      "name": "PM",
+      "display_name": "PM",
+      "role": "Project Manager",
+      "description": "A professional project manager skilled in requirements analysis, task decomposition, progress tracking, risk assessment, and team coordination.",
+      "author": "ACowork Team",
+      "category": "project",
+      "category_label": "Project",
+      "runtime_version": "0.1.0",
+      "avatar": "avatars/com.acowork.project-manager.jpg",
+      "permissions": [
+        "FilesystemRead",
+        "FilesystemWrite",
+        "Network"
+      ],
+      "high_risk_permissions": [
+        "FilesystemWrite"
+      ],
+      "capabilities": [
+        {
+          "key": "requirements_analysis",
+          "description": "Analyze and document project requirements into a structured PRD"
+        },
+        {
+          "key": "risk_assessment",
+          "description": "Identify, evaluate, and create mitigation plans for project risks"
+        },
+        {
+          "key": "task_decomposition",
+          "description": "Break down project goals into actionable tasks with estimates and dependencies"
+        }
+      ],
+      "skills": [
+        "meeting-notes",
+        "progress-tracking",
+        "requirements-analysis",
+        "risk-assessment",
+        "sprint-planning",
+        "stakeholder-communication",
+        "task-decomposition"
+      ],
+      "package": {
+        "file": "downloads/com.acowork.project-manager.agent",
+        "size_bytes": 78886,
+        "sha256": "397fd2da2e5220b0f5b82faa05eb917cfa09e506356ad21c92ab7f60a0978f7c"
+      }
+    },
+    {
+      "agent_id": "com.acowork.quality-assurance",
+      "version": "1.0.0",
+      "name": "QA",
+      "display_name": "QA",
+      "role": "Quality Assurance Manager",
+      "description": "A quality assurance and quality management agent skilled in quality strategy, test planning, test case design, defect triage, regression management, release acceptance, and continuous quality improvement.",
+      "author": "ACowork Team",
+      "category": "quality",
+      "category_label": "Quality",
+      "runtime_version": "0.1.0",
+      "avatar": "avatars/com.acowork.quality-assurance.jpg",
+      "permissions": [
+        "FilesystemRead",
+        "FilesystemWrite",
+        "Network"
+      ],
+      "high_risk_permissions": [
+        "FilesystemWrite"
+      ],
+      "capabilities": [
+        {
+          "key": "defect_management",
+          "description": "Triage, classify, prioritize, track, and report defects through resolution and verification"
+        },
+        {
+          "key": "quality_strategy",
+          "description": "Define quality objectives, risk-based quality gates, metrics, and continuous improvement plans"
+        },
+        {
+          "key": "regression_management",
+          "description": "Plan and maintain regression suites based on risk, change impact, defect history, and automation value"
+        },
+        {
+          "key": "release_acceptance",
+          "description": "Assess release readiness using quality gates, known issues, risk acceptance, and go/no-go criteria"
+        },
+        {
+          "key": "test_case_design",
+          "description": "Design behavior-focused test cases covering functional, non-functional, boundary, negative, and regression scenarios"
+        },
+        {
+          "key": "test_planning",
+          "description": "Create test plans with scope, levels, environments, responsibilities, risks, and schedules"
+        }
+      ],
+      "skills": [
+        "defect-management",
+        "quality-strategy",
+        "regression-management",
+        "release-acceptance",
+        "test-case-design",
+        "test-plan"
+      ],
+      "package": {
+        "file": "downloads/com.acowork.quality-assurance.agent",
+        "size_bytes": 71811,
+        "sha256": "6d78080c170ef23424574905144a95accd53e2674e32b0d148dc65c99b44c93e"
+      }
+    }
+  ]
+}
