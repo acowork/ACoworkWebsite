@@ -47,24 +47,24 @@ Then visit <http://localhost:8080>.
 └── .gitignore
 ```
 
-## Agents
+## Agents & Apps
 
-There is no agent page on this site. The registry lives in the Agent Hub
-(<https://hub.acowork.ai>), which is the single source for browsing, searching and
-downloading `.agent` packages — official ones included, so the marketing site only
-needs one link to it.
+There is no agent or app catalog page on this site. The registries live on
+sibling Cloudflare sites, so the marketing homepage only links out:
 
-The nav points there directly:
+| Registry | URL |
+|---|---|
+| Agent Hub (`.agent` packages) | <https://hub.acowork.ai> |
+| App Gallery (hosted apps) | <https://gallery.acowork.ai> |
 
 ```html
 <a href="https://hub.acowork.ai">Agent Hub</a>
+<a href="https://gallery.acowork.ai">App Gallery</a>
 ```
 
-Agents are published by merging into the
-[ACoworkAgentHub](https://github.com/acowork/ACoworkAgentHub) repo; see its
-`docs/publishing.md`. Nothing here projects, copies or snapshots a package, so
-there is no second copy to go stale — that was the previous design and it is
-gone.
+Agents are published via [ACoworkAgentHub](https://github.com/acowork/ACoworkAgentHub);
+apps are registered in [ACoworkAppGallery](https://github.com/acowork/ACoworkAppGallery).
+Nothing here mirrors those catalogs, so there is no second copy to go stale.
 
 ## Editing content
 
@@ -87,9 +87,9 @@ attachment` on `/agents/downloads/*` went away with that directory, because agen
 packages are served by the Agent Hub, not by this site.
 
 > Note: `*.pages.dev` has no mainland-China PoP and cannot be ICP-filed. Serve the
-> site from a custom domain if mainland users matter. Reachability has three names
-> to weigh here, not one: this site, `hub.acowork.ai` (agent packages, also Cloudflare)
-> and GitHub Releases (the app binaries) — a user can reach one and not the others.
+> site from a custom domain if mainland users matter. Reachability has four names
+> to weigh here: this site, `hub.acowork.ai` (agents), `gallery.acowork.ai` (apps),
+> and GitHub Releases (Desktop binaries) — a user can reach one and not the others.
 
 The previous instructions here described a GitHub Pages setup; the site has since moved
 to Cloudflare Pages.
