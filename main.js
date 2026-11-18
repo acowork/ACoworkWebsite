@@ -36,20 +36,21 @@
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
   // --- GitHub stars (graceful) ---
-  // Pulls stars count via GitHub's public REST API. If the call fails
-  // (rate limit, offline, CORS), the badge quietly falls back to a dash.
-  const starsEl = document.getElementById('stars-badge');
-  const REPO = 'acowork/ACowork'; // upstream source repo
-  if (starsEl) {
+  // Icon-only nav: surface the count on the GitHub link title/aria-label.
+  const githubLink = document.getElementById('github-link');
+  const REPO = 'acowork/ACowork';
+  if (githubLink) {
     fetch('https://api.github.com/repos/' + REPO, { headers: { Accept: 'application/vnd.github+json' } })
       .then((r) => (r.ok ? r.json() : null))
       .then((data) => {
         if (data && typeof data.stargazers_count === 'number') {
           const n = data.stargazers_count;
-          starsEl.textContent = n >= 1000 ? (n / 1000).toFixed(1).replace(/\.0$/, '') + 'k' : String(n);
+          const label = n >= 1000 ? (n / 1000).toFixed(1).replace(/\.0$/, '') + 'k' : String(n);
+          githubLink.title = 'GitHub · ★ ' + label;
+          githubLink.setAttribute('aria-label', 'GitHub repository, ' + label + ' stars');
         }
       })
-      .catch(() => { /* keep placeholder */ });
+      .catch(() => { /* keep default title */ });
   }
 
   // --- Smooth-scroll for in-page anchors (fallback for browsers without :focus-visible support) ---
