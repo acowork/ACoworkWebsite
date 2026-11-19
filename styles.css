@@ -215,6 +215,7 @@ p  { margin: 0 0 1em; }
 .c-tag  { color: #ff8a3d; }
 .c-str  { color: #b8e986; }
 .c-ok   { color: #50c878; font-weight: 600; }
+.c-out  { color: #9aa4b2; }            /* program output — dimmer than a prompt */
 
 /* section */
 .section { padding: 80px 0; }
@@ -258,7 +259,10 @@ p  { margin: 0 0 1em; }
 .manifesto__note { margin: 0; color: var(--text-dim); font-size: 1.02rem; }
 
 /* get-started / modes */
-.modes { display: grid; grid-template-columns: 1fr; gap: 18px; }
+/* Two transports — side by side so the contrast (one address vs. a tunnel)
+   is the thing you see first. `align-items: start` keeps each card at its
+   own height instead of stretching the shorter one to match. */
+.modes { display: grid; grid-template-columns: repeat(2, 1fr); align-items: start; gap: 18px; }
 .mode { background: var(--bg-2); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 24px; transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease; }
 .mode:hover { border-color: var(--line-2); transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,.18); }
 .mode__head { margin-bottom: 14px; }
@@ -385,6 +389,16 @@ p  { margin: 0 0 1em; }
   color: var(--text-dim);
 }
 .mode__note code.inline { font-size: .82rem; }
+
+/* Enrollment-token routes (Desktop guide / CLI prompt / raw API) — a labelled
+   list of alternatives inside a mode step, visually a sibling of .mode__note. */
+.tokenways { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.tokenways li { display: grid; grid-template-columns: 76px 1fr; gap: 12px; align-items: start; padding: 12px 14px; background: var(--bg-3); border: 1px solid var(--line); border-radius: 10px; }
+.tokenways p { margin: 0; font-size: .88rem; line-height: 1.5; color: var(--text-dim); }
+.tokenways strong { color: var(--text); font-weight: 600; }
+.tokenways code.inline { font-size: .82rem; }
+.tokenways__k { font-family: 'JetBrains Mono', monospace; font-size: .7rem; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--text-mute); padding-top: 2px; }
+.tokenways__code { margin-top: 10px; font-size: .78rem; }
 .mode__apps {
   margin: 10px 0 0;
   padding-top: 16px;
@@ -421,6 +435,8 @@ p  { margin: 0 0 1em; }
   .hero__inner { grid-template-columns: 1fr; gap: 36px; }
   .dl-grid { grid-template-columns: repeat(3, 1fr); }
   .ft-grid { grid-template-columns: repeat(2, 1fr); }
+  .modes { grid-template-columns: 1fr; }
+  .tokenways li { grid-template-columns: 1fr; gap: 6px; }
 }
 @media (max-width: 720px) {
   .nav__links { display: none; }
@@ -471,6 +487,7 @@ p  { margin: 0 0 1em; }
   .c-str { color: #4d7c0f; }            /* deep lime — was #b8e986 */
   .c-ok  { color: #1d8a5a; }            /* brand green — was #15803d */
   .c-c   { color: #6b7280; }            /* slate — was #6f7886 (slight tweak for light) */
+  .c-out { color: #4b5563; }            /* slate-700 — output on light bg */
 
   /* ===== Terminal: mirror the hero card — light surface in light mode =====
      .hero__card gets `background: #ffffff` above, so the first-screen
@@ -490,6 +507,7 @@ p  { margin: 0 0 1em; }
   .terminal .c-tag { color: #be185d; }            /* deep pink */
   .terminal .c-str { color: #4d7c0f; }            /* deep lime */
   .terminal .c-ok  { color: #1d8a5a; }            /* brand green */
+  .terminal .c-out { color: #4b5563; }
   .terminal .c-c   { color: #6b7280; }            /* slate */
 
   /* Override .mode .code (#dde1e6) inside .terminal — must sit after

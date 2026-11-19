@@ -7,12 +7,12 @@
   <meta name="theme-color" content="#0d0e10" />
 
   <title>ACowork &mdash; AI Agents Collaboration Platform</title>
-  <meta name="description" content="ACowork is a multi-user, distributed, AI-native collaboration platform. Declarative .agent packages, multiple devices on one protocol, standalone to cluster." />
+  <meta name="description" content="ACowork is a multi-user, distributed, AI-native collaboration platform. Declarative .agent packages, multiple devices on one protocol, one address or a cloud relay." />
   <meta name="keywords" content="ACowork, AI agents, multi-agent, collaboration platform, declarative agent, Rust, MCP, Grafeo" />
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="ACowork &mdash; AI Agents Collaboration Platform" />
-  <meta property="og:description" content="Multi-user &middot; distributed &middot; AI-native. Declarative .agent packages, multiple devices on one protocol, standalone to cluster." />
+  <meta property="og:description" content="Multi-user &middot; distributed &middot; AI-native. Declarative .agent packages, multiple devices on one protocol, one address or a cloud relay." />
   <meta property="og:image" content="assets/hero-1.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
@@ -86,7 +86,7 @@
           <p class="hero__sub">
             ACowork is a multi-user, distributed, AI-native collaboration platform.
             Declarative <code class="inline">.agent</code> packages, multiple devices
-            on one protocol, standalone to cluster.
+            on one protocol, one address or a cloud relay.
           </p>
           <div class="hero__cta">
             <a class="btn btn--primary" href="#download">
@@ -106,21 +106,24 @@
               <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
               <span class="hero__cardurl">acowork@gateway: ~</span>
             </div>
-            <pre class="hero__cardbody"><code><span class="c-c"># 1) Start the Gateway (cluster mode)</span>
+            <pre class="hero__cardbody"><code><span class="c-c"># 1) Start the Gateway on the controller host</span>
 $ <span class="c-cmd">./acowork-gateway</span> \
       <span class="c-cmd">--addr</span>            0.0.0.0:19876 \
       <span class="c-cmd">--mqtt-addr</span>       0.0.0.0:19875 \
       <span class="c-cmd">--advertise-host</span>  gw.lan
 
-<span class="c-ok">&#10003;</span> Gateway     listening on  http://gw.lan:19876
-<span class="c-ok">&#10003;</span> MQTT broker on              gw.lan:19875
+<span class="c-ok">&#10003;</span> HTTP API listening on http://gw.lan:19876
+<span class="c-ok">&#10003;</span> MQTT broker confirmed started
 
-<span class="c-c"># 2) On any host, enroll a Node into the cluster</span>
+<span class="c-c"># 2) On any other machine, enroll a Node &mdash; one token, one command</span>
 $ <span class="c-cmd">./acowork-node start</span> \
       <span class="c-cmd">--gateway</span> gw.lan:19875 \
-      <span class="c-cmd">--token</span>   <span class="c-str">$ENROLL_TOKEN</span>
+      <span class="c-cmd">--token</span>   <span class="c-str">&lt;one-time token&gt;</span>
 
-<span class="c-ok">&#10003;</span> enrolled as node-&lt;uuid&gt; &middot; Runtime host ready</code></pre>
+<span class="c-out">Node Agent starting</span>
+<span class="c-out">Node MQTT (re)connected &mdash; running bootstrap</span>
+<span class="c-out">Node enrollment request published</span>
+<span class="c-ok">&#10003;</span> Node token persisted to identity.json</code></pre>
           </div>
         </div>
       </div>
@@ -290,7 +293,7 @@ $ <span class="c-cmd">./acowork-node start</span> \
           <article class="ft">
             <div class="ft__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></svg></div>
             <h3>Distributed by default</h3>
-            <p>One protocol, every topology. Local, remote nodes, or relay &mdash; the same contract, no branches.</p>
+            <p>One protocol, every topology. Direct to a server address, or through a cloud relay &mdash; the same contract, no branches.</p>
           </article>
           <article class="ft">
             <div class="ft__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2h-4a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V8"/><path d="M16.706 2.706A2.4 2.4 0 0 0 15 2v5a1 1 0 0 0 1 1h5a2.4 2.4 0 0 0-.706-1.706z"/><path d="M5 7a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h8a2 2 0 0 0 1.732-1"/></svg></div>
@@ -310,27 +313,27 @@ $ <span class="c-cmd">./acowork-node start</span> \
       <div class="container">
         <header class="section__head">
           <p class="eyebrow eyebrow--center">Get Started</p>
-          <h2 class="section__title">Same protocol. Three wirings.</h2>
-          <p class="section__lead">Once you have the binaries, pick how Gateway and Node Agents wire up &mdash; Standalone, Cluster, or Relay. Same contract either way.</p>
+          <h2 class="section__title">One address. Two transports.</h2>
+          <p class="section__lead">A client picks a transport &mdash; <strong>Direct</strong> or <strong>Relay</strong>. Direct is just a server address; Relay adds a cloud tunnel on top of it. Everything else stays the same contract.</p>
         </header>
 
         <div class="topology">
           <header class="topology__head">
-            <p class="eyebrow eyebrow--center">Deployment topologies</p>
-            <h3>Pick the wiring that fits.</h3>
-            <p>Every variant shows the Gateway command, the Node command (or &ldquo;auto&rdquo;), and what the GUI apps do.</p>
+            <p class="eyebrow eyebrow--center">Transports</p>
+            <h3>Pick how the client reaches the Gateway.</h3>
+            <p>Both transports run the same Gateway, the same protocol, the same agents. Only the path differs.</p>
           </header>
 
           <div class="modes">
             <article class="mode">
               <header class="mode__head">
-                <span class="mode__tag">A &middot; Standalone</span>
-                <h3>Local single host</h3>
-                <p>Personal use, demos, edge devices. Gateway auto-spawns one local Node Agent. Zero setup.</p>
+                <span class="mode__tag">A &middot; Direct</span>
+                <h3>Talk to a server address</h3>
+                <p>The client asks for exactly one thing: a Gateway address. <code class="inline">127.0.0.1</code>, a LAN host, a hostname &mdash; the same setting either way. &ldquo;Local&rdquo; and &ldquo;remote&rdquo; are not two modes you pick; they are two answers to &ldquo;is this address on this machine?&rdquo;</p>
               </header>
               <div class="mode__stack">
                 <div class="mode__step">
-                  <span class="mode__step-label">Gateway</span>
+                  <span class="mode__step-label">Gateway &middot; the machine the clients point at</span>
                   <div class="ptabs" data-ptabs-group="platform">
                     <div class="ptabs__bar" role="tablist" aria-label="Platform">
                       <button type="button" class="ptabs__btn is-active" data-ptab="macos"   role="tab" aria-selected="true">macOS</button>
@@ -344,9 +347,9 @@ $ <span class="c-cmd">./acowork-node start</span> \
                           <span class="terminal__url">acowork@gateway: ~</span>
                         </div>
                         <pre class="code terminal__body"><code><span class="c-cd">$</span> <span class="c-cmd">./acowork-gateway</span>
-<span class="c-ok">&#10003;</span> Gateway     listening on  http://127.0.0.1:19876
-<span class="c-ok">&#10003;</span> MQTT broker on              127.0.0.1:19875
-<span class="c-ok">&#10003;</span> Local Node Agent enrolled (uuid=local-&hellip;)</code></pre>
+<span class="c-ok">&#10003;</span> HTTP API listening on http://127.0.0.1:19876
+<span class="c-ok">&#10003;</span> MQTT broker confirmed started
+<span class="c-ok">&#10003;</span> Local node agent spawned</code></pre>
                       </div>
                     </div>
                     <div class="ptabs__pane" data-ptab-pane="windows" role="tabpanel" hidden>
@@ -356,9 +359,9 @@ $ <span class="c-cmd">./acowork-node start</span> \
                           <span class="terminal__url">acowork@gateway: ~</span>
                         </div>
                         <pre class="code terminal__body"><code><span class="c-cd">$</span> <span class="c-cmd">.\acowork-gateway.exe</span>
-<span class="c-ok">&#10003;</span> Gateway     listening on  http://127.0.0.1:19876
-<span class="c-ok">&#10003;</span> MQTT broker on              127.0.0.1:19875
-<span class="c-ok">&#10003;</span> Local Node Agent enrolled (uuid=local-&hellip;)</code></pre>
+<span class="c-ok">&#10003;</span> HTTP API listening on http://127.0.0.1:19876
+<span class="c-ok">&#10003;</span> MQTT broker confirmed started
+<span class="c-ok">&#10003;</span> Local node agent spawned</code></pre>
                       </div>
                     </div>
                     <div class="ptabs__pane" data-ptab-pane="linux" role="tabpanel" hidden>
@@ -368,82 +371,40 @@ $ <span class="c-cmd">./acowork-node start</span> \
                           <span class="terminal__url">acowork@gateway: ~</span>
                         </div>
                         <pre class="code terminal__body"><code><span class="c-cd">$</span> <span class="c-cmd">./acowork-gateway</span>
-<span class="c-ok">&#10003;</span> Gateway     listening on  http://127.0.0.1:19876
-<span class="c-ok">&#10003;</span> MQTT broker on              127.0.0.1:19875
-<span class="c-ok">&#10003;</span> Local Node Agent enrolled (uuid=local-&hellip;)</code></pre>
+<span class="c-ok">&#10003;</span> HTTP API listening on http://127.0.0.1:19876
+<span class="c-ok">&#10003;</span> MQTT broker confirmed started
+<span class="c-ok">&#10003;</span> Local node agent spawned</code></pre>
                       </div>
                     </div>
                   </div>
+                  <p class="mode__note">The Gateway auto-spawns one <code class="inline">name=local</code> Node Agent, so a single machine is already a complete deployment &mdash; nothing to enroll by hand. To reach it from the LAN, bind it wide: <code class="inline">--addr 0.0.0.0:19876 --mqtt-addr 0.0.0.0:19875 --advertise-host gw.lan</code>.</p>
                 </div>
                 <div class="mode__step">
-                  <span class="mode__step-label">Node</span>
-                  <p class="mode__note">Auto-spawned by the Gateway as <code class="inline">name=local</code> &mdash; no manual command needed.</p>
-                </div>
-                <p class="mode__apps"><strong>Desktop</strong> &mdash; double-click the app icon. Defaults to <em>Local</em> mode pointing at <code class="inline">http://127.0.0.1:19876</code>, auto-connects. &middot; <strong>Mobile</strong> &mdash; N/A in Standalone (the mobile app always points at a remote Gateway).</p>
-              </div>
-            </article>
+                  <span class="mode__step-label">Node &middot; every extra machine (optional)</span>
+                  <p class="mode__note">A new machine joins with a <strong>one-time enrollment token</strong> &mdash; that token is what binds the machine to your account. Only a Gateway you already trust can mint one, so the new box never sees your password. Three ways to get one:</p>
+                  <ul class="tokenways">
+                    <li>
+                      <span class="tokenways__k">Desktop</span>
+                      <p>On first-run setup, or in the <strong>agent library</strong> whenever it says there is no node yet, open <strong>Start a node on another machine</strong>. It mints the token and prints the command below with the host, MQTT port and token already filled in. Copy it, paste it on the target box.</p>
+                    </li>
+                    <li>
+                      <span class="tokenways__k">CLI</span>
+                      <p>Leave <code class="inline">--token</code> off on a fresh machine: <code class="inline">acowork-node start --gateway gw.lan:19875</code> prompts for your account, mints its own one-time token over the Gateway HTTP API, and spends it on the spot &mdash; it never appears in argv, config files, or logs.</p>
+                    </li>
+                    <li>
+                      <span class="tokenways__k">Script</span>
+                      <p>For CI and bulk deploys, mint it yourself. Sign in, then ask for a token; the plaintext is returned exactly once.</p>
+                      <pre class="code tokenways__code"><code><span class="c-cd">$</span> <span class="c-cmd">curl</span> -s -X POST http://gw.lan:19876/api/auth/login \
+      -H <span class="c-str">'content-type: application/json'</span> \
+      -d <span class="c-str">'{"username":"ops","password":"&hellip;"}'</span>
+<span class="c-out">{"access_token":"&hellip;"}</span>
 
-            <article class="mode">
-              <header class="mode__head">
-                <span class="mode__tag">B &middot; Cluster</span>
-                <h3>Remote nodes</h3>
-                <p>Multiple machines, one Gateway. Run heavy agents on a GPU box, lightweight on a laptop &mdash; both enroll over MQTT.</p>
-              </header>
-              <div class="mode__stack">
-                <div class="mode__step">
-                  <span class="mode__step-label">Gateway &middot; controller host</span>
-                  <div class="ptabs" data-ptabs-group="platform">
-                    <div class="ptabs__bar" role="tablist" aria-label="Platform">
-                      <button type="button" class="ptabs__btn is-active" data-ptab="macos"   role="tab" aria-selected="true">macOS</button>
-                      <button type="button" class="ptabs__btn"           data-ptab="windows" role="tab" aria-selected="false">Windows</button>
-                      <button type="button" class="ptabs__btn"           data-ptab="linux"   role="tab" aria-selected="false">Linux</button>
-                    </div>
-                    <div class="ptabs__pane is-active" data-ptab-pane="macos" role="tabpanel">
-                      <div class="terminal">
-                        <div class="terminal__head">
-                          <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
-                          <span class="terminal__url">acowork@gateway: ~</span>
-                        </div>
-                        <pre class="code terminal__body"><code><span class="c-cd">$</span> <span class="c-cmd">./acowork-gateway</span> \
-      <span class="c-cmd">--addr</span>            0.0.0.0:19876 \
-      <span class="c-cmd">--mqtt-addr</span>       0.0.0.0:19875 \
-      <span class="c-cmd">--advertise-host</span>  gw.lan
-<span class="c-ok">&#10003;</span> Gateway     listening on  http://gw.lan:19876
-<span class="c-ok">&#10003;</span> MQTT broker on              gw.lan:19875</code></pre>
-                      </div>
-                    </div>
-                    <div class="ptabs__pane" data-ptab-pane="windows" role="tabpanel" hidden>
-                      <div class="terminal">
-                        <div class="terminal__head">
-                          <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
-                          <span class="terminal__url">acowork@gateway: ~</span>
-                        </div>
-                        <pre class="code terminal__body"><code><span class="c-cd">$</span> <span class="c-cmd">.\acowork-gateway.exe</span> `
-      <span class="c-cmd">--addr</span>            0.0.0.0:19876 `
-      <span class="c-cmd">--mqtt-addr</span>       0.0.0.0:19875 `
-      <span class="c-cmd">--advertise-host</span>  gw.lan
-<span class="c-ok">&#10003;</span> Gateway     listening on  http://gw.lan:19876
-<span class="c-ok">&#10003;</span> MQTT broker on              gw.lan:19875</code></pre>
-                      </div>
-                    </div>
-                    <div class="ptabs__pane" data-ptab-pane="linux" role="tabpanel" hidden>
-                      <div class="terminal">
-                        <div class="terminal__head">
-                          <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
-                          <span class="terminal__url">acowork@gateway: ~</span>
-                        </div>
-                        <pre class="code terminal__body"><code><span class="c-cd">$</span> <span class="c-cmd">./acowork-gateway</span> \
-      <span class="c-cmd">--addr</span>            0.0.0.0:19876 \
-      <span class="c-cmd">--mqtt-addr</span>       0.0.0.0:19875 \
-      <span class="c-cmd">--advertise-host</span>  gw.lan
-<span class="c-ok">&#10003;</span> Gateway     listening on  http://gw.lan:19876
-<span class="c-ok">&#10003;</span> MQTT broker on              gw.lan:19875</code></pre>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="mode__step">
-                  <span class="mode__step-label">Node &middot; every Runtime host (GPU box, workstation, VM)</span>
+<span class="c-cd">$</span> <span class="c-cmd">curl</span> -s -X POST http://gw.lan:19876/api/nodes/enrollment-tokens \
+      -H <span class="c-str">"Authorization: Bearer $ACCESS_TOKEN"</span> \
+      -d <span class="c-str">'{"ttl_seconds":3600}'</span>
+<span class="c-out">{"token":"&hellip;"}</span></code></pre>
+                    </li>
+                  </ul>
                   <div class="ptabs" data-ptabs-group="platform">
                     <div class="ptabs__bar" role="tablist" aria-label="Platform">
                       <button type="button" class="ptabs__btn is-active" data-ptab="macos"   role="tab" aria-selected="true">macOS</button>
@@ -458,8 +419,11 @@ $ <span class="c-cmd">./acowork-node start</span> \
                         </div>
                         <pre class="code terminal__body"><code><span class="c-cd">$</span> <span class="c-cmd">./acowork-node start</span> \
       <span class="c-cmd">--gateway</span> gw.lan:19875 \
-      <span class="c-cmd">--token</span>   <span class="c-str">$ENROLL_TOKEN</span>
-<span class="c-ok">&#10003;</span> enrolled as node-&lt;uuid&gt; &middot; Runtime host ready</code></pre>
+      <span class="c-cmd">--token</span>   <span class="c-str">&lt;pasted-from-the-guide&gt;</span>
+<span class="c-out">Node Agent starting</span>
+<span class="c-out">Node MQTT (re)connected &mdash; running bootstrap</span>
+<span class="c-out">Node enrollment request published</span>
+<span class="c-ok">&#10003;</span> Node token persisted to identity.json</code></pre>
                       </div>
                     </div>
                     <div class="ptabs__pane" data-ptab-pane="windows" role="tabpanel" hidden>
@@ -470,8 +434,11 @@ $ <span class="c-cmd">./acowork-node start</span> \
                         </div>
                         <pre class="code terminal__body"><code><span class="c-cd">$</span> <span class="c-cmd">.\acowork-node.exe start</span> `
       <span class="c-cmd">--gateway</span> gw.lan:19875 `
-      <span class="c-cmd">--token</span>   <span class="c-str">$env:ENROLL_TOKEN</span>
-<span class="c-ok">&#10003;</span> enrolled as node-&lt;uuid&gt; &middot; Runtime host ready</code></pre>
+      <span class="c-cmd">--token</span>   <span class="c-str">&lt;pasted-from-the-guide&gt;</span>
+<span class="c-out">Node Agent starting</span>
+<span class="c-out">Node MQTT (re)connected &mdash; running bootstrap</span>
+<span class="c-out">Node enrollment request published</span>
+<span class="c-ok">&#10003;</span> Node token persisted to identity.json</code></pre>
                       </div>
                     </div>
                     <div class="ptabs__pane" data-ptab-pane="linux" role="tabpanel" hidden>
@@ -482,76 +449,45 @@ $ <span class="c-cmd">./acowork-node start</span> \
                         </div>
                         <pre class="code terminal__body"><code><span class="c-cd">$</span> <span class="c-cmd">./acowork-node start</span> \
       <span class="c-cmd">--gateway</span> gw.lan:19875 \
-      <span class="c-cmd">--token</span>   <span class="c-str">$ENROLL_TOKEN</span>
-<span class="c-ok">&#10003;</span> enrolled as node-&lt;uuid&gt; &middot; Runtime host ready</code></pre>
+      <span class="c-cmd">--token</span>   <span class="c-str">&lt;pasted-from-the-guide&gt;</span>
+<span class="c-out">Node Agent starting</span>
+<span class="c-out">Node MQTT (re)connected &mdash; running bootstrap</span>
+<span class="c-out">Node enrollment request published</span>
+<span class="c-ok">&#10003;</span> Node token persisted to identity.json</code></pre>
                       </div>
                     </div>
                   </div>
+                  <p class="mode__note">A token is single-use and expires in an hour (24h ceiling) &mdash; reopen the guide to mint another. Once a machine has enrolled it keeps its own long-lived node credential and reconnects by itself, so you enroll each box exactly once. Agents then run on whichever node you schedule them on &mdash; the Gateway routes, the node executes.</p>
                 </div>
-                <p class="mode__apps"><strong>Desktop</strong> &mdash; Settings &rarr; <em>Gateway</em> tab &rarr; switch to <em>Remote (LAN)</em> &rarr; enter <code class="inline">http://gw.lan:19876</code>. &middot; <strong>Mobile</strong> &mdash; same URL; works on the phone over Wi-Fi.</p>
+                <p class="mode__apps"><strong>Desktop</strong> &mdash; Settings &rarr; <em>Gateway</em> &rarr; <em>Gateway Connection</em> &rarr; <em>Direct</em>, then pick or type the address. <code class="inline">http://127.0.0.1:19876</code> is the first entry in the list, and if no Gateway is listening there the app starts one for you. &middot; <strong>Mobile</strong> &mdash; the same address; works on the phone over Wi-Fi.</p>
               </div>
             </article>
 
             <article class="mode">
               <header class="mode__head">
-                <span class="mode__tag">C &middot; Relay</span>
-                <h3>NAT&rsquo;d / remote access</h3>
-                <p>Reach your home Gateway from anywhere with a thin WSS tunnel &mdash; no public port, no VPN. Layered on top of Standalone or Cluster.</p>
+                <span class="mode__tag">B &middot; Relay</span>
+                <h3>Reach it from anywhere</h3>
+                <p>Behind NAT, or a home Gateway you want on the go? The Gateway dials out to a cloud relay and the client connects to its device domain over TLS &mdash; no open port, no VPN, no inbound firewall rule.</p>
               </header>
               <div class="mode__stack">
                 <div class="mode__step">
-                  <span class="mode__step-label">Gateway &middot; flip the tunnel on (no restart)</span>
-                  <div class="ptabs" data-ptabs-group="platform">
-                    <div class="ptabs__bar" role="tablist" aria-label="Platform">
-                      <button type="button" class="ptabs__btn is-active" data-ptab="macos"   role="tab" aria-selected="true">macOS</button>
-                      <button type="button" class="ptabs__btn"           data-ptab="windows" role="tab" aria-selected="false">Windows</button>
-                      <button type="button" class="ptabs__btn"           data-ptab="linux"   role="tab" aria-selected="false">Linux</button>
+                  <span class="mode__step-label">Gateway &middot; turn the tunnel on</span>
+                  <div class="terminal">
+                    <div class="terminal__head">
+                      <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
+                      <span class="terminal__url">acowork@gateway: config/gateway.toml</span>
                     </div>
-                    <div class="ptabs__pane is-active" data-ptab-pane="macos" role="tabpanel">
-                      <div class="terminal">
-                        <div class="terminal__head">
-                          <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
-                          <span class="terminal__url">acowork@gateway: ~</span>
-                        </div>
-                        <pre class="code terminal__body"><code><span class="c-cd">$</span> <span class="c-cmd">curl -X POST http://127.0.0.1:19876/api/relay/enable</span> \
-      -H <span class="c-str">'Content-Type: application/json'</span> \
-      -d <span class="c-str">'{"url": "wss://relay.example.com/tunnel"}'</span>
-<span class="c-ok">&#10003;</span> tunnel established &middot; gw-id: 7f3a-&hellip;</code></pre>
-                      </div>
-                    </div>
-                    <div class="ptabs__pane" data-ptab-pane="windows" role="tabpanel" hidden>
-                      <div class="terminal">
-                        <div class="terminal__head">
-                          <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
-                          <span class="terminal__url">acowork@gateway: ~</span>
-                        </div>
-                        <pre class="code terminal__body"><code><span class="c-cd">$</span> <span class="c-cmd">$body</span> = <span class="c-str">'{&quot;url&quot;: &quot;wss://relay.example.com/tunnel&quot;}'</span>
-<span class="c-cd">$</span> <span class="c-cmd">curl.exe</span> -X POST http://127.0.0.1:19876/api/relay/enable `
-        -H <span class="c-str">"Content-Type: application/json"</span> `
-        -d <span class="c-cmd">$body</span>
-<span class="c-ok">&#10003;</span> tunnel established &middot; gw-id: 7f3a-&hellip;</code></pre>
-                        <p class="mode__note">PowerShell's <code class="inline">curl</code> is an alias for <code class="inline">Invoke-WebRequest</code> &mdash; call <code class="inline">curl.exe</code> explicitly for the same behavior as bash.</p>
-                      </div>
-                    </div>
-                    <div class="ptabs__pane" data-ptab-pane="linux" role="tabpanel" hidden>
-                      <div class="terminal">
-                        <div class="terminal__head">
-                          <span class="dot dot--r"></span><span class="dot dot--y"></span><span class="dot dot--g"></span>
-                          <span class="terminal__url">acowork@gateway: ~</span>
-                        </div>
-                        <pre class="code terminal__body"><code><span class="c-cd">$</span> <span class="c-cmd">curl -X POST http://127.0.0.1:19876/api/relay/enable</span> \
-      -H <span class="c-str">'Content-Type: application/json'</span> \
-      -d <span class="c-str">'{"url": "wss://relay.example.com/tunnel"}'</span>
-<span class="c-ok">&#10003;</span> tunnel established &middot; gw-id: 7f3a-&hellip;</code></pre>
-                      </div>
-                    </div>
+                    <pre class="code terminal__body"><code><span class="c-cmd">[relay]</span>
+<span class="c-cmd">enabled</span> = <span class="c-str">true</span>
+<span class="c-cmd">url</span>     = <span class="c-str">"wss://relay.example.com/tunnel"</span></code></pre>
                   </div>
+                  <p class="mode__note">The file lives in the Gateway directory &mdash; <code class="inline">config/gateway.toml</code> under the ACowork home folder. Restart the Gateway to bring the tunnel up; it reconnects on its own if the relay drops. Operators can also flip it at runtime with <code class="inline">POST /api/relay/enable</code>, which needs a signed-in account token.</p>
                 </div>
                 <div class="mode__step">
-                  <span class="mode__step-label">Node</span>
-                  <p class="mode__note">Unchanged &mdash; Nodes still talk to the local Gateway as before. Relay only rewires the inbound path.</p>
+                  <span class="mode__step-label">Device id</span>
+                  <p class="mode__note">The tunnel mints a device id on first connect and keeps it in <code class="inline">relay_identity.json</code>. Read it from the Gateway&rsquo;s <code class="inline">/api/relay/status</code>, or straight from the Desktop settings panel. The client address is that id plus your relay domain: <code class="inline">https://&lt;gw-id&gt;.relay.example.com</code>. A relay address is always <code class="inline">https://</code> &mdash; it carries the WSS MQTT bridge, and a plain-http address would answer <code class="inline">/health</code> while realtime stayed dead.</p>
                 </div>
-                <p class="mode__apps"><strong>Desktop</strong> &mdash; Settings &rarr; <em>Gateway</em> tab &rarr; switch to <em>Relay (WAN)</em> &rarr; enter <code class="inline">https://7f3a-&hellip;.relay.example.com</code>. &middot; <strong>Mobile</strong> &mdash; same; ideal for on-the-go access to a home gateway.</p>
+                <p class="mode__apps"><strong>Desktop</strong> &mdash; Settings &rarr; <em>Gateway</em> &rarr; <em>Gateway Connection</em> &rarr; <em>Relay</em>, then enter the device domain. &middot; <strong>Mobile</strong> &mdash; the same device domain; ideal for on-the-go access to a home gateway. Relay only rewires the inbound path &mdash; the Nodes, the agents and the Gateway keep talking exactly as before.</p>
               </div>
             </article>
           </div>
