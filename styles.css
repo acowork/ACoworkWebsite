@@ -398,7 +398,21 @@ p  { margin: 0 0 1em; }
 .tokenways strong { color: var(--text); font-weight: 600; }
 .tokenways code.inline { font-size: .82rem; }
 .tokenways__k { font-family: 'JetBrains Mono', monospace; font-size: .7rem; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: var(--text-mute); padding-top: 2px; }
-.tokenways__code { margin-top: 10px; font-size: .78rem; }
+/* The Script route carries a code block as a third child of the labelled
+   row. Grid auto-placement dropped it into the 76px label column (row 2 /
+   column 1), collapsing the whole snippet into a 76px box with a horizontal
+   scrollbar. Span the full row instead — the snippet is the widest
+   thing in the card. */
+.tokenways__code {
+  grid-column: 1 / -1;
+  margin-top: 10px;
+  font-size: .78rem;
+  /* long curl lines wrap instead of forcing an inner scrollbar */
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+/* recessed code surface — the note row behind it is --bg-3 */
+.mode .tokenways__code { background: var(--bg-2); }
 .mode__apps {
   margin: 10px 0 0;
   padding-top: 16px;
@@ -479,6 +493,7 @@ p  { margin: 0 0 1em; }
   /* ===== Code block surfaces (hardcoded to bypass var cache) ===== */
   .code { background: #eaedf2; }
   .mode .code { background: #dde1e6; }
+  .mode .tokenways__code { background: #dde1e6; }
 
   /* ===== Code syntax colors (darker for contrast on light bg) ===== */
   .c-cmd { color: #b45309; }            /* deep amber — was #f7c948 */
