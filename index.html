@@ -6,13 +6,13 @@
   <meta name="color-scheme" content="dark light" />
   <meta name="theme-color" content="#0d0e10" />
 
-  <title>ACowork &mdash; AI Agents Collaboration Platform</title>
-  <meta name="description" content="ACowork is a multi-user, distributed, AI-native collaboration platform. Declarative .agent packages, multiple devices on one protocol, one address or a cloud relay." />
-  <meta name="keywords" content="ACowork, AI agents, multi-agent, collaboration platform, declarative agent, Rust, MCP, Grafeo" />
+  <title>ACowork &mdash; AI Bots Collaboration Platform</title>
+  <meta name="description" content="ACowork is a multi-user, distributed, AI-native collaboration platform for AI bots (AI agents). Declarative .bot packages, multiple devices on one protocol, one address or a cloud relay." />
+  <meta name="keywords" content="ACowork, AI bots, AI agents, multi-bot, multi-agent, collaboration platform, declarative bot package, Rust, MCP, Grafeo" />
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="ACowork &mdash; AI Agents Collaboration Platform" />
-  <meta property="og:description" content="Multi-user &middot; distributed &middot; AI-native. Declarative .agent packages, multiple devices on one protocol, one address or a cloud relay." />
+  <meta property="og:title" content="ACowork &mdash; AI Bots Collaboration Platform" />
+  <meta property="og:description" content="Multi-user &middot; distributed &middot; AI-native. Declarative .bot packages, multiple devices on one protocol, one address or a cloud relay." />
   <meta property="og:image" content="assets/hero-1.jpg" />
   <meta name="twitter:card" content="summary_large_image" />
 
@@ -35,7 +35,7 @@
         <a href="#download">Download</a>
         <a href="#features">Features</a>
         <a href="#start">Get Started</a>
-        <a href="https://hub.acowork.ai">Agent Hub</a>
+        <a href="https://hub.acowork.ai">Bot Hub</a>
         <a href="https://gallery.acowork.ai">App Gallery</a>
       </nav>
       <div class="nav__actions">
@@ -80,12 +80,12 @@
           </a>
           <h1 class="hero__title">
             One platform for
-            <span class="grad-text">humans &amp; AI agents</span>
+            <span class="grad-text">humans &amp; AI bots</span>
             to ship work together.
           </h1>
           <p class="hero__sub">
             ACowork is a multi-user, distributed, AI-native collaboration platform.
-            Declarative <code class="inline">.agent</code> packages, multiple devices
+            Declarative <code class="inline">.bot</code> packages, multiple devices
             on one protocol, one address or a cloud relay.
           </p>
           <div class="hero__cta">
@@ -133,8 +133,8 @@ $ <span class="c-cmd">./acowork-node start</span> \
       <div class="container">
         <div class="manifesto__inner">
           <p class="eyebrow eyebrow--center">Philosophy</p>
-          <h2 class="manifesto__statement" id="philosophy-title">We&rsquo;re not automating agents. We&rsquo;re making them behave like people.</h2>
-          <p class="manifesto__note">Automation tries to pull the human out of the loop. ACowork is designed the other way &mdash; no sub-agents, no orchestration trees to babysit. Just a <code class="inline">chat-session</code> to think the work through, and an <code class="inline">execute-session</code> to carry it out, with you in the loop.</p>
+          <h2 class="manifesto__statement" id="philosophy-title">We&rsquo;re not automating bots. We&rsquo;re making them behave like people.</h2>
+          <p class="manifesto__note">Automation tries to pull the human out of the loop. ACowork is designed the other way &mdash; no sub-bots, no orchestration trees to babysit. Just a <code class="inline">chat-session</code> to think the work through, and an <code class="inline">execute-session</code> to carry it out, with you in the loop.</p>
         </div>
       </div>
     </section>
@@ -208,7 +208,7 @@ $ <span class="c-cmd">./acowork-node start</span> \
 <span class="c-cd">$</span> git clone https://github.com/acowork/ACowork
 <span class="c-cd">$</span> cd ACowork
 
-<span class="c-c"># 1) Core &mdash; Gateway + Runtime + Node Agent (release profile)</span>
+<span class="c-c"># 1) Core &mdash; Gateway + Runtime + Node Service (release profile)</span>
 <span class="c-cd">$</span> ./dev/common/build_core.sh
 
 <span class="c-c"># 2) Desktop App &mdash; macOS (.app / .dmg)</span>
@@ -229,7 +229,7 @@ $ <span class="c-cmd">./acowork-node start</span> \
 <span class="c-cd">$</span> git clone https://github.com/acowork/ACowork
 <span class="c-cd">$</span> cd ACowork
 
-<span class="c-c"># 1) Core &mdash; Gateway + Runtime + Node Agent (release profile)</span>
+<span class="c-c"># 1) Core &mdash; Gateway + Runtime + Node Service (release profile)</span>
 <span class="c-cd">$</span> .\dev\common\build_core.ps1
 
 <span class="c-c"># 2) Desktop App &mdash; Windows (.msi / NSIS)</span>
@@ -250,7 +250,7 @@ $ <span class="c-cmd">./acowork-node start</span> \
 <span class="c-cd">$</span> git clone https://github.com/acowork/ACowork
 <span class="c-cd">$</span> cd ACowork
 
-<span class="c-c"># 1) Core &mdash; Gateway + Runtime + Node Agent (release profile)</span>
+<span class="c-c"># 1) Core &mdash; Gateway + Runtime + Node Service (release profile)</span>
 <span class="c-cd">$</span> ./dev/common/build_core.sh
 
 <span class="c-c"># 2) Desktop App &mdash; Linux (.deb / .rpm / AppImage)</span>
@@ -282,8 +282,8 @@ $ <span class="c-cmd">./acowork-node start</span> \
           </article>
           <article class="ft">
             <div class="ft__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z"/><path d="M12 22V12"/><polyline points="3.29 7 12 12 20.71 7"/><path d="m7.5 4.27 9 5.15"/></svg></div>
-            <h3>Declarative agents</h3>
-            <p><code class="inline">.agent</code> packages &mdash; manifest + prompts + skills, <strong>no executable code</strong>, signed and verified at install time.</p>
+            <h3>Declarative bots</h3>
+            <p><code class="inline">.bot</code> packages &mdash; manifest + prompts + skills, <strong>no executable code</strong>, signed and verified at install time.</p>
           </article>
           <article class="ft">
             <div class="ft__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 10.27 7 3.34"/><path d="m11 13.73-4 6.93"/><path d="M12 22v-2"/><path d="M12 2v2"/><path d="M14 12h8"/><path d="m17 20.66-1-1.73"/><path d="m17 3.34-1 1.73"/><path d="M2 12h2"/><path d="m20.66 17-1.73-1"/><path d="m20.66 7-1.73 1"/><path d="m3.34 17 1.73-1"/><path d="m3.34 7 1.73 1"/><circle cx="12" cy="12" r="2"/><circle cx="12" cy="12" r="8"/></svg></div>
@@ -303,7 +303,7 @@ $ <span class="c-cmd">./acowork-node start</span> \
           <article class="ft">
             <div class="ft__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></div>
             <h3>Multi-tier permission system</h3>
-            <p><strong>Admin</strong>/<strong>user</strong> roles &middot; per-<strong>node</strong>, per-<strong>agent</strong>, and per-<strong>session</strong> visibility with explicit user grants. Least privilege, by default.</p>
+            <p><strong>Admin</strong>/<strong>user</strong> roles &middot; per-<strong>node</strong>, per-<strong>bot</strong>, and per-<strong>session</strong> visibility with explicit user grants. Least privilege, by default.</p>
           </article>
         </div>
       </div>
@@ -321,7 +321,7 @@ $ <span class="c-cmd">./acowork-node start</span> \
           <header class="topology__head">
             <p class="eyebrow eyebrow--center">Transports</p>
             <h3>Pick how the client reaches the Gateway.</h3>
-            <p>Both transports run the same Gateway, the same protocol, the same agents. Only the path differs.</p>
+            <p>Both transports run the same Gateway, the same protocol, the same bots. Only the path differs.</p>
           </header>
 
           <div class="modes">
@@ -377,7 +377,7 @@ $ <span class="c-cmd">./acowork-node start</span> \
                       </div>
                     </div>
                   </div>
-                  <p class="mode__note">The Gateway auto-spawns one <code class="inline">name=local</code> Node Agent, so a single machine is already a complete deployment &mdash; nothing to enroll by hand. To reach it from the LAN, bind it wide: <code class="inline">--addr 0.0.0.0:19876 --mqtt-addr 0.0.0.0:19875 --advertise-host gw.lan</code>.</p>
+                  <p class="mode__note">The Gateway auto-spawns one <code class="inline">name=local</code> Node Service, so a single machine is already a complete deployment &mdash; nothing to enroll by hand. To reach it from the LAN, bind it wide: <code class="inline">--addr 0.0.0.0:19876 --mqtt-addr 0.0.0.0:19875 --advertise-host gw.lan</code>.</p>
                 </div>
                 <div class="mode__step">
                   <span class="mode__step-label">Node &middot; every extra machine (optional)</span>
@@ -385,7 +385,7 @@ $ <span class="c-cmd">./acowork-node start</span> \
                   <ul class="tokenways">
                     <li>
                       <span class="tokenways__k">Desktop</span>
-                      <p>On first-run setup, or in the <strong>agent library</strong> whenever it says there is no node yet, open <strong>Start a node on another machine</strong>. It mints the token and prints the command below with the host, MQTT port and token already filled in. Copy it, paste it on the target box.</p>
+                      <p>On first-run setup, or in the <strong>bot library</strong> whenever it says there is no node yet, open <strong>Start a node on another machine</strong>. It mints the token and prints the command below with the host, MQTT port and token already filled in. Copy it, paste it on the target box.</p>
                     </li>
                     <li>
                       <span class="tokenways__k">CLI</span>
@@ -457,7 +457,7 @@ $ <span class="c-cmd">./acowork-node start</span> \
                       </div>
                     </div>
                   </div>
-                  <p class="mode__note">A token is single-use and expires in an hour (24h ceiling) &mdash; reopen the guide to mint another. Once a machine has enrolled it keeps its own long-lived node credential and reconnects by itself, so you enroll each box exactly once. Agents then run on whichever node you schedule them on &mdash; the Gateway routes, the node executes.</p>
+                  <p class="mode__note">A token is single-use and expires in an hour (24h ceiling) &mdash; reopen the guide to mint another. Once a machine has enrolled it keeps its own long-lived node credential and reconnects by itself, so you enroll each box exactly once. Bots then run on whichever node you schedule them on &mdash; the Gateway routes, the node executes.</p>
                 </div>
                 <p class="mode__apps"><strong>Desktop</strong> &mdash; Settings &rarr; <em>Gateway</em> &rarr; <em>Gateway Connection</em> &rarr; <em>Direct</em>, then pick or type the address. <code class="inline">http://127.0.0.1:19876</code> is the first entry in the list, and if no Gateway is listening there the app starts one for you. &middot; <strong>Mobile</strong> &mdash; the same address; works on the phone over Wi-Fi.</p>
               </div>
@@ -487,7 +487,7 @@ $ <span class="c-cmd">./acowork-node start</span> \
                   <span class="mode__step-label">Device id</span>
                   <p class="mode__note">The tunnel mints a device id on first connect and keeps it in <code class="inline">relay_identity.json</code>. Read it from the Gateway&rsquo;s <code class="inline">/api/relay/status</code>, or straight from the Desktop settings panel. The client address is that id plus your relay domain: <code class="inline">https://&lt;gw-id&gt;.relay.example.com</code>. A relay address is always <code class="inline">https://</code> &mdash; it carries the WSS MQTT bridge, and a plain-http address would answer <code class="inline">/health</code> while realtime stayed dead.</p>
                 </div>
-                <p class="mode__apps"><strong>Desktop</strong> &mdash; Settings &rarr; <em>Gateway</em> &rarr; <em>Gateway Connection</em> &rarr; <em>Relay</em>, then enter the device domain. &middot; <strong>Mobile</strong> &mdash; the same device domain; ideal for on-the-go access to a home gateway. Relay only rewires the inbound path &mdash; the Nodes, the agents and the Gateway keep talking exactly as before.</p>
+                <p class="mode__apps"><strong>Desktop</strong> &mdash; Settings &rarr; <em>Gateway</em> &rarr; <em>Gateway Connection</em> &rarr; <em>Relay</em>, then enter the device domain. &middot; <strong>Mobile</strong> &mdash; the same device domain; ideal for on-the-go access to a home gateway. Relay only rewires the inbound path &mdash; the Nodes, the bots and the Gateway keep talking exactly as before.</p>
               </div>
             </article>
           </div>
@@ -506,7 +506,7 @@ $ <span class="c-cmd">./acowork-node start</span> \
         <a href="https://github.com/acowork/ACowork" target="_blank" rel="noopener">GitHub</a>
         <a href="https://github.com/acowork/ACowork/LICENSE" target="_blank" rel="noopener">License</a>
         <a href="https://github.com/acowork/ACowork/AGENTS.md" target="_blank" rel="noopener">AGENTS.md</a>
-        <a href="https://hub.acowork.ai" target="_blank" rel="noopener">Agent Hub</a>
+        <a href="https://hub.acowork.ai" target="_blank" rel="noopener">Bot Hub</a>
         <a href="https://gallery.acowork.ai" target="_blank" rel="noopener">App Gallery</a>
       </nav>
     </div>

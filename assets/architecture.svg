@@ -136,14 +136,14 @@
   <g transform="translate(50, 660)">
     <rect x="0" y="0" width="296" height="118" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5" />
     <text x="148" y="22" text-anchor="middle" fill="#334155" font-size="12" font-weight="700">acowork-runtime</text>
-    <text x="148" y="40" text-anchor="middle" fill="#64748b" font-size="10">Agent "com.acowork.senior-engineer"</text>
+    <text x="148" y="40" text-anchor="middle" fill="#64748b" font-size="10">Bot "com.acowork.senior-engineer"</text>
     <text x="148" y="62" text-anchor="middle" fill="#475569" font-size="10">✓ Grafeo · ✓ direct LLM</text>
     <text x="148" y="78" text-anchor="middle" fill="#475569" font-size="10">✓ WASM tools · ✓ loopback HTTP</text>
     <text x="148" y="102" text-anchor="middle" fill="#94a3b8" font-size="10">spawned by local Node</text>
 
     <rect x="314" y="0" width="296" height="118" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5" />
     <text x="462" y="22" text-anchor="middle" fill="#334155" font-size="12" font-weight="700">acowork-runtime</text>
-    <text x="462" y="40" text-anchor="middle" fill="#64748b" font-size="10">Agent "com.acowork.qa-tom"</text>
+    <text x="462" y="40" text-anchor="middle" fill="#64748b" font-size="10">Bot "com.acowork.qa-tom"</text>
     <text x="462" y="62" text-anchor="middle" fill="#475569" font-size="10">✓ Grafeo · ✓ direct LLM</text>
     <text x="462" y="78" text-anchor="middle" fill="#475569" font-size="10">✓ WASM tools · ✓ loopback HTTP</text>
     <text x="462" y="102" text-anchor="middle" fill="#94a3b8" font-size="10">spawned by local Node</text>
@@ -180,14 +180,14 @@
   <g transform="translate(740, 514)">
     <rect x="0" y="0" width="296" height="118" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5" />
     <text x="148" y="22" text-anchor="middle" fill="#334155" font-size="12" font-weight="700">acowork-runtime</text>
-    <text x="148" y="40" text-anchor="middle" fill="#64748b" font-size="10">Agent "com.acowork.docflow"</text>
+    <text x="148" y="40" text-anchor="middle" fill="#64748b" font-size="10">Bot "com.acowork.docflow"</text>
     <text x="148" y="62" text-anchor="middle" fill="#475569" font-size="10">✓ Grafeo · ✓ direct LLM</text>
     <text x="148" y="78" text-anchor="middle" fill="#475569" font-size="10">✓ WASM tools · ✓ loopback HTTP</text>
     <text x="148" y="102" text-anchor="middle" fill="#94a3b8" font-size="10">lives on Machine B</text>
 
     <rect x="314" y="0" width="296" height="118" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5" />
     <text x="462" y="22" text-anchor="middle" fill="#334155" font-size="12" font-weight="700">acowork-runtime</text>
-    <text x="462" y="40" text-anchor="middle" fill="#64748b" font-size="10">Agent "com.example.qa-tom"</text>
+    <text x="462" y="40" text-anchor="middle" fill="#64748b" font-size="10">Bot "com.example.qa-tom"</text>
     <text x="462" y="62" text-anchor="middle" fill="#475569" font-size="10">✓ Grafeo · ✓ direct LLM</text>
     <text x="462" y="78" text-anchor="middle" fill="#475569" font-size="10">✓ WASM tools · ✓ loopback HTTP</text>
     <text x="462" y="102" text-anchor="middle" fill="#94a3b8" font-size="10">lives on Machine B</text>
@@ -216,7 +216,7 @@
     </g>
     <g transform="translate(470, 38)">
       <text x="0" y="14" fill="#f59e0b" font-size="11" font-weight="700">② AI-native PM &amp; Doc</text>
-      <text x="0" y="32" fill="#475569" font-size="10">acowork-pm and acowork-doc are first-class services — agents read / write / collab like teammates.</text>
+      <text x="0" y="32" fill="#475569" font-size="10">acowork-pm and acowork-doc are first-class services — bots read / write / collab like teammates.</text>
       <text x="0" y="48" fill="#94a3b8" font-size="10">ADR-064 · ADR-079</text>
     </g>
     <g transform="translate(910, 38)">

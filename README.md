@@ -1,6 +1,6 @@
 # ACowork Website
 
-The official marketing site for the **[ACowork](https://github.com/tranxon/ACowork)** open-source project — an AI agents collaboration platform.
+The official marketing site for the **[ACowork](https://github.com/tranxon/ACowork)** open-source project — an AI bots collaboration platform.
 
 ## Stack
 
@@ -38,7 +38,7 @@ Then visit <http://localhost:8080>.
 │   ├── logo.svg         # Brand mark (warm yellow → orange gradient)
 │   ├── logo-gray.svg    # Footer-friendly monochrome logo
 │   ├── architecture.svg # System architecture diagram (from the ACowork repo)
-│   ├── hero-1.jpg       # Product screenshot — multi-agent collaboration
+│   ├── hero-1.jpg       # Product screenshot — multi-bot collaboration
 │   ├── hero-2.jpg       # Product screenshot — debug panel & context snapshots
 │   └── fonts/             # Self-hosted Inter + JetBrains Mono variable woff2
 ├── research/            # Market research write-ups
@@ -47,22 +47,22 @@ Then visit <http://localhost:8080>.
 └── .gitignore
 ```
 
-## Agents & Apps
+## Bots & Apps
 
-There is no agent or app catalog page on this site. The registries live on
+There is no bot or app catalog page on this site. The registries live on
 sibling Cloudflare sites, so the marketing homepage only links out:
 
 | Registry | URL |
 |---|---|
-| Agent Hub (`.agent` packages) | <https://hub.acowork.ai> |
+| Bot Hub (`.bot` packages) | <https://hub.acowork.ai> |
 | App Gallery (hosted apps) | <https://gallery.acowork.ai> |
 
 ```html
-<a href="https://hub.acowork.ai">Agent Hub</a>
+<a href="https://hub.acowork.ai">Bot Hub</a>
 <a href="https://gallery.acowork.ai">App Gallery</a>
 ```
 
-Agents are published via [ACoworkAgentHub](https://github.com/acowork/ACoworkAgentHub);
+Bots are published via [ACoworkAgentHub](https://github.com/acowork/ACoworkAgentHub);
 apps are registered in [ACoworkAppGallery](https://github.com/acowork/ACoworkAppGallery).
 Nothing here mirrors those catalogs, so there is no second copy to go stale.
 
@@ -83,12 +83,12 @@ The project is already connected to this repo; a push to `main` builds and publi
 
 `_headers` is read by Pages at the edge. It now only sets
 `X-Content-Type-Options: nosniff`; the rule that forced `Content-Disposition:
-attachment` on `/agents/downloads/*` went away with that directory, because agent
-packages are served by the Agent Hub, not by this site.
+attachment` on `/agents/downloads/*` went away with that directory, because bot
+packages are served by the Bot Hub, not by this site.
 
 > Note: `*.pages.dev` has no mainland-China PoP and cannot be ICP-filed. Serve the
 > site from a custom domain if mainland users matter. Reachability has four names
-> to weigh here: this site, `hub.acowork.ai` (agents), `gallery.acowork.ai` (apps),
+> to weigh here: this site, `hub.acowork.ai` (bots), `gallery.acowork.ai` (apps),
 > and GitHub Releases (Desktop binaries) — a user can reach one and not the others.
 
 The previous instructions here described a GitHub Pages setup; the site has since moved
