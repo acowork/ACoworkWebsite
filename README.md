@@ -62,7 +62,7 @@ sibling Cloudflare sites, so the marketing homepage only links out:
 <a href="https://gallery.acowork.ai">App Gallery</a>
 ```
 
-Bots are published via [ACoworkAgentHub](https://github.com/acowork/ACoworkAgentHub);
+Bots are published via [ACoworkBotHub](https://github.com/acowork/ACoworkBotHub);
 apps are registered in [ACoworkAppGallery](https://github.com/acowork/ACoworkAppGallery).
 Nothing here mirrors those catalogs, so there is no second copy to go stale.
 
